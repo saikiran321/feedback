@@ -1,0 +1,5 @@
+<% content_for :title do%>
+  Home
+<% end %>
+
+<p>This is the home page of our hostel...</p>

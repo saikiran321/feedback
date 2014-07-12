@@ -1,0 +1,5 @@
+<% content_for :title do%>
+  Help
+<%end%>
+
+<p>This is the help page of our hostel</p>

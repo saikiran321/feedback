@@ -1,0 +1,126 @@
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+.container {
+  background-color:rgb(100,250,0);
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+.footer-container{
+  vertical-align:middle;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color:rgb(228,228,228);
+}
+
+.gravatar{
+  background-color: rgb(50,50,50);
+  height: 100px;
+  width: 100px;
+}
+
+.sample1
+{
+  background-color:rgb(250,240,250);
+  width:100%;
+  height:150px;
+  padding:0;
+  margin:0;
+}
+
+.review_div
+{
+  background-color:rgb(200,200,200);
+  width:100%;
+  height:100px;
+  padding:0;
+  margin:0;
+}
+
+.sample2
+{
+  background-color:rgb(150,150,150);
+  width:20%;
+  height:100%;
+  padding:0;
+  margin:0;
+  float: left;
+}
+
+.book_content
+{
+  width:60%;
+  float: left;
+  height:100%;
+  background-color: rgb(250,20,50);
+}
+
+.issue_div
+{
+  height:100%;
+  width:20%;
+  float:left;
+  background-color:rgb(229,229,0);
+  position:relative;
+}
+
+.book_name
+{
+  background-color:rgb(229,29,0);
+  margin: 0;
+  padding: 5px 5px 0px 5px;
+}
+
+.author_name
+{
+  background-color:rgb(22,229,0);
+  margin: 0;
+  padding: 5px 5px 0px 5px;
+}
+
+.review_hide
+{
+  background-color:rgb(22,229,0);
+  margin: 0;
+  padding: 5px 5px 0px 5px;
+  float:right;
+}
+
+.expand_review{
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+.wrap_div{
+  width:100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form_container{
+  margin:auto;
+  width:70%;
+  background-color:rb(100,100,0);
+}
+
+.form_heading{
+  margin:auto;
+  width:73%;
+}
+
