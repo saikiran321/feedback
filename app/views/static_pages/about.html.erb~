@@ -1,5 +1,0 @@
-<% content_for :title do %>
-  About Us
-<% end %>
-
-<p>This is the about page of our hostel</p>
