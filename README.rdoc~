@@ -3,14 +3,6 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-* Please change the database.yml file as per your local database setting for developing on your own system.
-
-* Please do a bundle install before you do anything else.
-
-* ./go.sh will drop your existing database with appropriate name, and will migrate your migrations. So please take care
-
-* Seed data will be used for testing all the views practically.
-
 Things you may want to cover:
 
 * Ruby version
