@@ -3,3 +3,8 @@
 <% end %>
 
 <p>This is the home page of feedback portal. We will list all the complaints over here.</p>
+<ul>
+<% @posts.each do |post| %>
+  <li><%= post_block(post) %></li>
+<% end %>
+</ul>
