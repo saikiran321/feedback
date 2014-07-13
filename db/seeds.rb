@@ -32,8 +32,8 @@ user9.save
 
 post1 = Post.new(content: "This is a sample post, first one.")
 post1.user = user1
+post1.tags << tag1
 post1.save
-
 post2 = Post.new(content: "This is a sample post, second one.")
 post2.user = user1
 post2.save
