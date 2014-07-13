@@ -59,23 +59,23 @@ post9 = Post.new(content: "This is a sample post, ninth one.")
 post9.user = user7
 post9.save
 
-comment1 = comment.new(content: "This is the first comment")
+comment1 = Comment.new(content: "This is the first comment")
 comment1.post = post1
 comment1.user = user2
 comment1.save
-comment2 = comment.new(content: "This is the second comment")
+comment2 = Comment.new(content: "This is the second comment")
 comment2.post = post1
 comment2.user = user3
 comment2.save
-comment3 = comment.new(content: "This is the third comment")
+comment3 = Comment.new(content: "This is the third comment")
 comment3.post = post1
 comment3.user = user4
 comment3.save
-comment4 = comment.new(content: "This is the fourth comment")
+comment4 = Comment.new(content: "This is the fourth comment")
 comment4.post = post1
 comment4.user = user5
 comment4.save
-comment5 = comment.new(content: "This is the fifth comment")
+comment5 = Comment.new(content: "This is the fifth comment")
 comment5.post = post2
 comment5.user = user3
 comment5.save

@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
 
-  has_many_and_belongs_to :tags
+  has_and_belongs_to_many :tags
 
   validates :name, presence: true
 end

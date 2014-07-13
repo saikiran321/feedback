@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20140712213731) do
     t.datetime "updated_at"
   end
 
+  create_table "posts_tags", id: false, force: true do |t|
+    t.integer "tag_id",  null: false
+    t.integer "post_id", null: false
+  end
+
+  add_index "posts_tags", ["post_id", "tag_id"], name: "index_posts_tags_on_post_id_and_tag_id", unique: true, using: :btree
+  add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
+
   create_table "tags", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
