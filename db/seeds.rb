@@ -30,32 +30,32 @@ user8.save
 user9 = User.new(name: 'Kartik Sharma', roll: 'ch12b032', password: 'amulya', password_confirmation:'amulya', hostel: 'ganga')
 user9.save
 
-post1 = Post.new(content: "This is a sample post, first one.")
+post1 = Post.new(title: "post 1",content: "This is a sample post, first one.")
 post1.user = user1
 post1.tags << tag1
 post1.save
-post2 = Post.new(content: "This is a sample post, second one.")
+post2 = Post.new(title: "post 2",content: "This is a sample post, second one.")
 post2.user = user1
 post2.save
-post3 = Post.new(content: "This is a sample post, third one.")
+post3 = Post.new(title: "post 3",content: "This is a sample post, third one.")
 post3.user = user1
 post3.save
-post4 = Post.new(content: "This is a sample post, fourth one.")
+post4 = Post.new(title:"post 4",content: "This is a sample post, fourth one.")
 post4.user = user2
 post4.save
-post5 = Post.new(content: "This is a sample post, fifth one.")
+post5 = Post.new(title:"post 5",content: "This is a sample post, fifth one.")
 post5.user = user3
 post5.save
-post6 = Post.new(content: "This is a sample post, sixth one.")
+post6 = Post.new(title:"post 6",content: "This is a sample post, sixth one.")
 post6.user = user4
 post6.save
-post7 = Post.new(content: "This is a sample post, seventh one.")
+post7 = Post.new(title:"post 7",content: "This is a sample post, seventh one.")
 post7.user = user5
 post7.save
-post8 = Post.new(content: "This is a sample post, eighth one.")
+post8 = Post.new(title:"post 8",content: "This is a sample post, eighth one.")
 post8.user = user6
 post8.save
-post9 = Post.new(content: "This is a sample post, ninth one.")
+post9 = Post.new(title:"post 9",content: "This is a sample post, ninth one.")
 post9.user = user7
 post9.save
 
