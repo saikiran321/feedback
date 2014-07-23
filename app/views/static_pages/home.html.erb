@@ -3,9 +3,9 @@
 <% end %>
 
 <p>This is the home page of feedback portal. We will list all the complaints over here.</p>
-<ul>
   <% @posts.each do |post| %>
-    <li><%= post.content %></li>
+    <div class="post_div">
+    <%= post.content %>
   <ul><% @comments = Comment.where("post_id = ?", post.id) %>
   <% @comments.each do |comment| %>
       <li><%= comment.content %></li>
@@ -13,8 +13,9 @@
       This comment is posted by <%= comment.user_id %> during <%= comment.created_at %>
   <% end %>
   </ul>
+  </div>
+  <br>
 <% end %>
-</ul>
 
 <%
     #The most important thing here is to observe that I've used a ruby block to list out one post with its comments as I wish and all others just follow the same format. Style the format accordingly and add somehow make it look like the comments section here. http://www.wattpad.com/57481539-psych-investigation-episodes-books-3-4-%26-5-chapter. I dont want so much hi funda as well. There should be a box available for junta to comment in-place and post button. Notice that @<variable_name> is used to declare what are called the instance variables. These instance variables, if defined in controllers, can be used in the respective views. (static_pages_controller.rb has its corresponding views as static_pages/ directory and each method in controller gets a view file, traditionally). Though, some controllers dont need views. They just do some actions. For example, the sessions destroy controller. Similarly, each comment box will have certain options. If you complete a little styling, I will do little more backend part.
