@@ -2,15 +2,26 @@
   Home
 <% end %>
 
-<p>This is the home page of feedback portal. We will list all the complaints over here.</p>
+<p>This is the home page of feedback portal. We will list all the complaints over here, along with a side menu bar for categories or whatever.</p>
+<br>
+<br>
   <% @posts.each do |post| %>
     <div class="post_div">
+      <br>
+      <div class="post_content">
     <%= post.content %>
-  <ul><% @comments = Comment.where("post_id = ?", post.id) %>
+      <br>
+    </div>
+      <br>
+    <ul>
+      <% @comments = Comment.where("post_id = ?", post.id) %>
   <% @comments.each do |comment| %>
+      <div class="comment_div">
       <li><%= comment.content %></li>
-      </br>
-      This comment is posted by <%= comment.user_id %> during <%= comment.created_at %>
+      This comment is posted by "<%= User.find(comment.user_id).name.capitalize %>" during <%= comment.created_at %>
+      <br>
+      </div>
+      <br>
   <% end %>
   </ul>
   </div>
