@@ -8,11 +8,19 @@ body {
 .container {
   background-color:rgb(100,250,0);
   min-height: 100%;
+  width:960px;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -50px;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+  padding: 0 0 50px;
+}
+
+.navbar
+{
+  background-color:rgb(0,0,50);
+  width:960px;
+  margin:auto;
 }
 
 .footer-container{
@@ -24,7 +32,9 @@ body {
 
 /* Set the fixed height of the footer here */
 #footer {
-  height: 60px;
+  height: 50px;
+  margin:auto;
+  width:960px;
   background-color:rgb(228,228,228);
 }
 
