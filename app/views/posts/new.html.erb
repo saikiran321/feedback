@@ -1,3 +1,26 @@
-This is where we will redirect if someone wants to lodge a complaint.
+<%= content_for :title do %>
+  Lodge a new Complaint
+<% end %>
 
-We will have a form-like structure and when someone posts, it will send a request along with data to posts#create controller.
+<h1 class="form_heading">Lodge a Complaint</h1></br></br>
+
+<div class="form_container">
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:post, url: new_post_path, method: 'post') do |f| %>
+
+      <%= f.label :title %><br>
+      <%= f.text_field :title %><br><br>
+
+      <%= f.label :content %><br>
+      <%= f.text_field :content %>
+      </br>
+      </br>
+      </br>
+      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
+</div>
+
