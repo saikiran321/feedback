@@ -15,11 +15,15 @@
       <%= f.label :content %><br>
       <%= f.text_area :content, size: "80x12" %><br><br>
 
-      <%= f.label :tags %><br>
-      <%= f.check_box :mess %>&nbsp<%= f.label :mess %><br>
-      <%= f.check_box :stufac %>&nbsp<%= f.label :stufac %><br>
-      <%= f.check_box :gen %>&nbsp<%= f.label :gen %><br>
-      </br>
+      <%= f.label :tag, "Tags (min 1, max 4)" %> <br>
+      <% for tag in Tag.all %>
+          <label>
+            <%= check_box_tag "post[tag_ids][]", tag.id, @post.tags.include?(tag) %>
+            <span>
+              <%= tag.name.capitalize %> &nbsp
+            </span>
+          </label>
+      <% end %>
       </br>
       </br>
       <%= f.submit "Submit", class: "btn btn-large btn-primary" %>

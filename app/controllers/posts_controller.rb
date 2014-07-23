@@ -6,16 +6,20 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
-    title = params[:post][:title]
-    content = params[:post][:content]
-
-    if title.length!= 0
+    @post = Post.new
+    @post.title = params[:post][:title]
+    @post.content = params[:post][:content]
+    @post.tag_ids = params[:post][:tag_ids]
+    @post.user = current_user
+    if @post.save
+      flash[:success] = "Successfully lodged a complaint"
       redirect_to root_url
     else
-      redirect_to new_post_path
+      render 'new'
     end
   end
 
