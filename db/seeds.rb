@@ -8,8 +8,8 @@
 
 
 tag1 = Tag.create(name:"mess")
-tag2 = Tag.create(name:"student facilities")
-tag3 = Tag.create(name:"general")
+tag2 = Tag.create(name:"stufac")
+tag3 = Tag.create(name:"gen")
 
 user1 = User.new(name: 'dharani', roll: 'me12b040', password: 'amulya', password_confirmation:'amulya', hostel: 'ganga')
 user1.save

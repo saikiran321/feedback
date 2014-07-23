@@ -13,7 +13,12 @@
       <%= f.text_field :title %><br><br>
 
       <%= f.label :content %><br>
-      <%= f.text_field :content %>
+      <%= f.text_area :content, size: "80x12" %><br><br>
+
+      <%= f.label :tags %><br>
+      <%= f.check_box :mess %>&nbsp<%= f.label :mess %><br>
+      <%= f.check_box :stufac %>&nbsp<%= f.label :stufac %><br>
+      <%= f.check_box :gen %>&nbsp<%= f.label :gen %><br>
       </br>
       </br>
       </br>
