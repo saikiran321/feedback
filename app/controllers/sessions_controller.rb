@@ -38,11 +38,11 @@ class SessionsController < ApplicationController
             ldap1.port = 389
             ldap1.auth entry.dn, password
             if ldap1.bind
-              @user = User.find_by(roll: params[:session][:roll])
+              @user = User.find_by(username: params[:session][:roll])
               if @user
                 sign_in @user
                 redirect_to @user
-                flash[:success] = "Welcome, #{@user[:name]}"
+                flash[:success] = "Welcome, #{@user[:fullname]}"
               else
                 redirect_to signin_path
                 flash[:error] = "Sorry, such a user does not exist in our database."
