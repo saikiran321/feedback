@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:create, :delete]
   resources :posts, only: [:new, :create, :delete, :edit]
+  resources :comments, only: [:create, :delete, :edit]
 
   match '/posts/:id(.:format)', to: 'posts#home', via: 'get'
 
