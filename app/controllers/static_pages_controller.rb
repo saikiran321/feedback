@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @posts=Post.last(2)
+    @posts = Post.all.reverse_order
   end
 
   def about
