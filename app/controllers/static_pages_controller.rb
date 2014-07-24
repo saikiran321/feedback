@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
+
   def home
-    @posts=Post.last(10)
+    @posts=Post.last(2)
   end
 
   def about
