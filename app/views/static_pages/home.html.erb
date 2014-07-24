@@ -18,6 +18,10 @@
   <% end %>
   </span>
   <br>
+  <span>
+    This post is posted by "<%= User.find(post.user_id).name.capitalize %>" during <%= post.created_at %>
+    </span>
+  <br>
   <ul>
     <% @comments = Comment.where("post_id = ?", post.id) %>
     <% @comments.each do |comment| %>
