@@ -4,15 +4,15 @@ class User < ActiveRecord::Base
   has_many :comments
 
   before_create :create_remember_token
-  before_save {self.roll = roll.downcase }
+  before_save {self.username = username.upcase }
 
   has_secure_password
 
-  validates :name, presence: true, length: {maximum: 50}
+  validates :fullname, presence: true, length: {maximum: 50}
 #  validates :password, length: { minimum:6 }
 #  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 #  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-  validates :roll, presence: true, length: {is: 8}
+  validates :username, presence: true, length: {is: 8}
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
