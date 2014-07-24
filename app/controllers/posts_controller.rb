@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  def home
-    @post = Post.where("id = ?", params[:id])
+  def show
+    @post = Post.find(params[:id])
     @comments = Comment.where("post_id = ?", params[:id])
   end
 
@@ -27,5 +27,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    @comments = Comment.where("post_id = ?", params[:id])
   end
 end

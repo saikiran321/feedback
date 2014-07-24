@@ -8,6 +8,10 @@
 <% @posts.each do |post| %>
   <div class="post_div">
   <br>
+  <div class="post_title">
+    <%= link_to post.title.capitalize, post_path(id: post.id) %>
+</div>
+  <br>
   <div class="post_content">
     <%= post.content %>
     <br>

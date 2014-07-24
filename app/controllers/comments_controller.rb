@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.post_id = Integer(params[:post_id])
         if @comment.save
           flash[:success]="Commented successfully"
-          redirect_to root_url
+          redirect_to :back
         else
           render 'new'
         end
