@@ -24,10 +24,16 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    Post.find(params[:id]).destroy
+    flash[:success] = "Succesfully deleted the post"
+    redirect_to :back
   end
 
   def edit
     @post = Post.find(params[:id])
     @comments = Comment.where("post_id = ?", params[:id])
+  end
+
+  def update
   end
 end
