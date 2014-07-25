@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'tags#index'
 
 
-  resources :users
+  resources :users, only:[:show]
   resources :sessions, only: [:create, :delete]
   resources :posts
   resources :comments, only: [:create, :destroy, :edit]
