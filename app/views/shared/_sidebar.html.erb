@@ -1,0 +1,11 @@
+<div class="sidebar">
+  <br>
+  this is the side bar....
+  <br>
+  Categories:<br>
+    <% for tag in Tag.all %>
+    <li>
+    <%= tag.name.capitalize %> &nbsp
+    </li>
+  <% end %>
+</div>
