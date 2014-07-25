@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :delete]
   resources :posts
   resources :comments, only: [:create, :destroy, :edit]
+  resources :tags, only: [:show]
 
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
   #  get 'static_pages/home'
 
   get 'static_pages/about'
-
   get 'static_pages/contact'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
