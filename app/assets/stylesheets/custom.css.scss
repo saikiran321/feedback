@@ -1,5 +1,6 @@
 html,
 body {
+
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 }
@@ -16,7 +17,7 @@ body {
   /* Negative indent footer by its height */
   margin: 0 auto -50px;
   /* Pad bottom by footer height */
-  padding: 0 0 50px;
+  padding: 0 0 75px;
 }
 
 .navbar
@@ -146,10 +147,9 @@ body {
 }
 
 .post_div{
-  max-width:75%;
-  //background-color:rgb(200,250,210);
-  padding:15px;
-  border-bottom:1px solid rgb(150,150,150);
+  padding:15px 10px 20px 10px;
+  //border-bottom:1px solid rgb(170,170,170);
+  box-shadow:0 0px 5px -2px rgba(100,100,100,0.9);
 }
 
 ul{
@@ -158,12 +158,20 @@ ul{
 
 .post_content{
   //background-color:rgb(250,250,250);
-  
+  padding-bottom:10px;
   color:rgb(50,50,50);
   font-size:1.2em;
 }
-
+.post_title{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+.comment_container{
+  padding-top:10px;	
+}
 .comment_div{
-  border-bottom:1px solid rgb(200,200,200);
+
+  padding:15px 10px 10px 10px;
+  border-bottom:1px solid rgb(255,255,255);
   background-color:rgb(240,240,240);
 }

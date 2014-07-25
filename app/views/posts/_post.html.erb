@@ -1,14 +1,12 @@
 <div class="post_div">
-  <br>
   <div class="post_title">
     <%= link_to post.title.capitalize, post_path(id: post.id) %>
   </div>
-  <br>
   <div class="post_content">
     <%= post.content %>
-    <br>
     <% if signed_in? && (current_user.usertype || current_user?(User.find(post.user_id)))%>
-      <%= link_to "delete", post, method: :delete, data: { confirm: "Are you sure?"} %>
+	<br>
+      <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?"} %>
     <% end %>
   </div>
   <span>Tags:<% @tags = Post.includes(:tags).find(post.id).tags %>
@@ -16,23 +14,26 @@
       <%= tag.name %>
   <% end %>
   </span>
-  <br>
+<br>
   <span>
-    This post is posted by "<%= User.find(post.user_id).fullname.capitalize %>" during <%= post.created_at %>
+    Posted by "<%= User.find(post.user_id).fullname.capitalize %>" | <%= post.created_at %>
 </span>
-  <br>
+<div class="comment_container">
   <ul>
     <% @comments = Comment.where("post_id = ?", post.id) %>
     <% @comments.each do |comment| %>
       <%= render comment %>
   <% end %>
   </ul>
+
   <% if signed_in? %>
     <%= form_for(:comment, url: comments_path, method: 'post') do |f|  %>
     <%= f.text_area :content, size: "60x5" %><br>
   <%= hidden_field_tag(:post_id, "#{post.id}")%>
   <%= f.submit "Comment" %>
 <% end %>
+
 <% end %>
 </div>
-<br>
+</div>
+
