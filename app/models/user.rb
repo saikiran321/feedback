@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  has_many :posts, inverse_of: :users, dependent: :destroy
-  has_many :comments, inverse_of: :users, dependent: :destroy
+  has_many :posts, inverse_of: :user, dependent: :destroy
+  has_many :comments, inverse_of: :user, dependent: :destroy
 
   before_create :create_remember_token
   before_save {self.username = username.upcase }

@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 
-  belongs_to :user
-  has_many :comments, inverse_of: :posts, dependent: :destroy
+  belongs_to :user, inverse_of: :posts
+  has_many :comments, inverse_of: :post, dependent: :destroy
   has_and_belongs_to_many :tags
 
   validates :title, presence: true
