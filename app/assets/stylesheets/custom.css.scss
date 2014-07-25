@@ -56,6 +56,16 @@ body {
   width: 100px;
 }
 
+.signin_form {
+  padding:35px;
+  box-shadow: 0 3px 5px -2px rgba(200,200,200,0.9);
+  width:50%;
+}
+.signin_form input {
+  border-radius: 0px;
+  margin:5px;
+}
+
 .sample1
 {
   background-color:rgb(250,240,250);
