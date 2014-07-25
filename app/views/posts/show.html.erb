@@ -2,26 +2,4 @@
   <%= @post.title %>
 <% end %>
 
-<%= @post.title %>
-<br>
-<%= @post.content %>
-<br>
-<ul>
-  <% @comments.each do |comment| %>
-    <div class="comment_div">
-    <li><%= comment.content %></li>
-    This comment is posted by "<%= User.find(comment.user_id).fullname.capitalize %>" during <%= comment.created_at %>
-  <br>
-  <br>
-  </div>
-<% end %>
-</ul>
-<% if signed_in? %>
-  <%= form_for(:comment, url: comments_path, method: 'post') do |f|  %>
-  <%= f.text_area :content, size: "60x5" %><br>
-<%= hidden_field_tag(:post_id, "#{@post.id}")%>
-<%= f.submit "Comment" %>
-    <% end %>
-  <% end %>
-  <br>
-  <br>
+<%= render @post %>

@@ -14,6 +14,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    Comment.find(params[:id]).destroy
+    flash[:success]="Successfully deleted the comment"
+    redirect_to :back
   end
 
   def edit

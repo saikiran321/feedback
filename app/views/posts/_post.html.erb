@@ -7,10 +7,8 @@
   <div class="post_content">
     <%= post.content %>
     <br>
-    <% if signed_in? %>
-    <% if current_user.usertype || current_user?(User.find(post.user_id))%>
+    <% if signed_in? && (current_user.usertype || current_user?(User.find(post.user_id)))%>
       <%= link_to "delete", post, method: :delete, data: { confirm: "Are you sure?"} %>
-    <% end %>
     <% end %>
   </div>
   <span>Tags:<% @tags = Post.includes(:tags).find(post.id).tags %>
@@ -26,12 +24,7 @@
   <ul>
     <% @comments = Comment.where("post_id = ?", post.id) %>
     <% @comments.each do |comment| %>
-      <div class="comment_div">
-      <li><%= comment.content %></li>
-      This comment is posted by "<%= User.find(comment.user_id).fullname.capitalize %>" during <%= comment.created_at %>
-    <br>
-    </div>
-    <br>
+      <%= render comment %>
   <% end %>
   </ul>
   <% if signed_in? %>
