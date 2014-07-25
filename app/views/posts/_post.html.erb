@@ -11,7 +11,7 @@
   </div>
   <span>Tags:<% @tags = Post.includes(:tags).find(post.id).tags %>
   <% @tags.each do |tag| %>
-      <%= tag.name %>
+      <%= link_to tag.name, tag %>
   <% end %>
   </span>
   <br>
