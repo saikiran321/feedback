@@ -5,14 +5,14 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  root 'static_pages#home'
+  root 'tags#index'
 
 
   resources :users
   resources :sessions, only: [:create, :delete]
   resources :posts
   resources :comments, only: [:create, :destroy, :edit]
-  resources :tags, only: [:show]
+  resources :tags, only: [:index, :show]
 
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
