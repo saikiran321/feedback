@@ -186,6 +186,9 @@ ul{
 .comment_container{
   padding-top:10px;	
 }
+.comment_container input, .comment_container textarea {
+  border-radius:0px;
+}
 .comment_div{
 
   padding:15px 10px 10px 10px;
