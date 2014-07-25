@@ -27,10 +27,10 @@
     </ul>
 
     <% if signed_in? %>
-      <%= form_for(:comment, url: comments_path, method: 'post') do |f|  %>
-      <%= f.text_area :content, size: "60x5" %><br>
+      <%= form_for(:comment, url: comments_path, method: 'post' , :html => { :class => "form-inline"}) do |f|  %>
+      <%= f.text_area :content, size: "60x1", class:"form-control", placeholder:"Add a comment" %>
     <%= hidden_field_tag(:post_id, "#{post.id}")%>
-    <%= f.submit "Comment" %>
+    <%= f.submit "Comment", class:"btn btn-default" %>
   <% end %>
 
   <% end %>
