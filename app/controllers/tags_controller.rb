@@ -6,6 +6,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
+    @posts = Tag.includes(:posts).find(@tag.id).posts
   end
 
 end

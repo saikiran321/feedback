@@ -1,3 +1,12 @@
 <% content_for :title do%>
   <%= @tag.name.capitalize %> complaints
 <% end %>
+
+  <%= render "shared/sidebar" %>
+
+<br>
+<p>This is the home page of for each category.<br>
+We will list all the complaints of a category over here, along with a side menu bar for categories or whatever.</p>
+<% @posts.each do |post| %>
+  <%= render post %>
+<% end %>
