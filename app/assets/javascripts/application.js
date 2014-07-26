@@ -15,3 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).ready(function(){
+  $(".expand_comments").next(".comments_container").hide();
+});

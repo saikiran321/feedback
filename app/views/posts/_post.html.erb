@@ -20,6 +20,7 @@
 </span>
 <br>
   <span class="expand_comment">view comments</span>
+  <br>
   <div class="comment_container">
     <ul>
       <% @comments = Comment.where("post_id = ?", post.id) %>

@@ -5,7 +5,7 @@
   Categories:<br>
     <% for tag in Tag.all %>
     <li>
-    <%= link_to "#{tag.name.capitalize} (#{tag.posts_count})", tag, class:"sidebar_link" %>
+    <%= link_to "#{tag.name.capitalize}", tag, class:"sidebar_link" %>
     </li>
   <% end %>
 </div>
