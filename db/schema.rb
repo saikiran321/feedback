@@ -14,30 +14,39 @@
 ActiveRecord::Schema.define(version: 20140726104957) do
 
   create_table "comments", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.text     "content"
+    t.integer  "user_id",    null: false
+    t.integer  "post_id",    null: false
+    t.text     "content",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "notifications", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.integer  "notif_user"
-    t.string   "action"
+    t.integer  "user_id",                    null: false
+    t.integer  "post_id",                    null: false
+    t.integer  "notif_user",                 null: false
+    t.string   "action",                     null: false
     t.boolean  "seen",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "notifications", ["post_id"], name: "index_notifications_on_post_id", using: :btree
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
+
   create_table "posts", force: true do |t|
-    t.integer  "user_id"
-    t.text     "title"
-    t.text     "content"
+    t.integer  "user_id",                         null: false
+    t.text     "title",                           null: false
+    t.text     "content",                         null: false
+    t.integer  "notifications_count", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "posts_tags", id: false, force: true do |t|
     t.integer "tag_id",  null: false
@@ -48,34 +57,12 @@ ActiveRecord::Schema.define(version: 20140726104957) do
   add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string   "name"
+    t.string   "name",        limit: 20,             null: false
+    t.integer  "posts_count",            default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.integer   "user_id"
-    t.string    "username",            limit: 15,              null: false
-    t.string    "fullname",            limit: 80,              null: false
-    t.integer   "room"
-    t.string    "hostel",              limit: 40
-    t.text      "profile_picture",                             null: false
-    t.datetime  "time_of_reg"
-    t.string    "current_mess",        limit: 40
-    t.string    "comment",             limit: 50
-    t.string    "remember_token",      limit: 128
-    t.string    "bgroup",              limit: 5
-    t.integer   "contact",             limit: 8,   default: 0
-    t.string    "email"
-    t.string    "nick"
-    t.string    "gender",              limit: 1
-    t.string    "picaddress",          limit: 50
-    t.timestamp "updated_timestamp"
-    t.text      "usertype"
-    t.integer   "notifications_count",             default: 0, null: false
-  end
-
-  add_index "users", ["username"], name: "UNIQUE", unique: true, using: :btree
-  add_index "users", ["username"], name: "username", unique: true, using: :btree
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
 end

@@ -17,3 +17,7 @@ tag2.save
 tag3 = Tag.new
 tag3.name = "gen"
 tag3.save
+
+tag4 = Tag.new
+tag4.name = "scrap"
+tag4.save
