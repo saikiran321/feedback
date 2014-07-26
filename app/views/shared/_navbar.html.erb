@@ -26,7 +26,7 @@
           <li><%= link_to "Sign In", signin_path %></li>
         <% else %>
           <li><%= link_to current_user.fullname, current_user %></li>
-          <li> <%= link_to "Notifications", notifications_path %></li>
+          <li> <%= link_to current_user.notifications_count, notifications_path %></li>
           <li><%= link_to "Sign Out", signout_path, method: 'delete' %></li>
       <% end %>
       </ul>
