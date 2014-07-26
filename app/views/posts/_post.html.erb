@@ -18,6 +18,8 @@
   <span>
     Posted by "<%= User.find(post.user_id).fullname.capitalize %>" | <%= post.created_at %>
 </span>
+<br>
+  <span class="expand_comment">view comments</span>
   <div class="comment_container">
     <ul>
       <% @comments = Comment.where("post_id = ?", post.id) %>
