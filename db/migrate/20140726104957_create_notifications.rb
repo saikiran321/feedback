@@ -5,7 +5,7 @@ class CreateNotifications < ActiveRecord::Migration
       t.belongs_to :post
       t.integer :notif_user
       t.string :action
-      t.boolean :seen
+      t.boolean :seen, default: false
 
       t.timestamps
     end

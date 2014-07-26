@@ -5,5 +5,4 @@ class Notification < ActiveRecord::Base
 
   validates :notif_user, presence: true 
   validates :action, presence: true
-  validates :seen, presence: true
 end
