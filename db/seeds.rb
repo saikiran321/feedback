@@ -6,21 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-post = Post.new
-post.user_id = 9528
-post.title = "hey there"
-post.content = "this is the content of my post..."
-post.save
+tag1 = Tag.new
+tag1.name = "mess"
+tag1.save
 
-notification = Notification.new
-notification.user_id = 9528
-notification.post_id = 1
-notification.action = 'commented'
-notification.notif_user = 9563
-notification.save
+tag2 = Tag.new
+tag2.name = "stufac"
+tag2.save
 
-comment = Comment.new
-comment.user_id = 9528
-comment.post_id = 1
-comment.content = "hey this is the content of my comment"
-comment.save
+tag3 = Tag.new
+tag3.name = "gen"
+tag3.save
