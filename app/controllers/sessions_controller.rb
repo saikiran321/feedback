@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
               @user = User.find_by(username: params[:session][:roll])
               if @user
                 sign_in @user
-                redirect_to notifications_path
+                redirect_to @user
                 flash[:success] = "Welcome, #{@user[:fullname]}"
               else
                 redirect_to signin_path
