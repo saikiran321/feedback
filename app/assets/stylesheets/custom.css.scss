@@ -6,8 +6,10 @@ body {
 }
 
 .post_div textarea{
-  resize:none;
+  resize:vertical;
+  border:2px solid rgb(190,190,190);
 }
+
 /* Wrapper for page content to push down footer */
 .container {
   //background-color:rgb(255,255,255);
@@ -57,15 +59,28 @@ body {
 }
 
 .signin_form {
+  background:rgb(255,255,255);
   padding:35px;
   box-shadow: 0 3px 5px -2px rgba(200,200,200,0.9);
   width:50%;
+  margin:5%;
 }
 .signin_form input {
   border-radius: 0px;
   margin:5px;
 }
 
+.new_post_form {
+  padding:15px;
+  background:rgb(255,255,255);
+}
+.new_post_form textarea {
+  resize:vertical;
+  border-radius:0px
+}
+.new_post_form input {
+  border-radius:0px;
+}
 .sample1
 {
   background-color:rgb(250,240,250);
