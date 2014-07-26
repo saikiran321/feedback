@@ -11,7 +11,7 @@
   </div>
   <span>Tags:<% @tags = Post.includes(:tags).find(post.id).tags %>
   <% @tags.each do |tag| %>
-      <%= link_to tag.name, tag %>
+      <%= link_to tag.name.capitalize, tag, class:"tag_link" %>
   <% end %>
   </span>
   <br>
