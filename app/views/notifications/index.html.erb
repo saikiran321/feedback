@@ -1,0 +1,7 @@
+<%= content_for :title do %>
+  All Notifications
+<% end %>
+
+<% @notifs.each do |notification| %>
+  <%= render notification %>
+<% end %>

@@ -1,0 +1,7 @@
+<div class="notification_div">
+  <% if notification.action == "deleted" %>
+    <%= User.find(notification.notif_user).fullname has deleted your comment on the post "#{Post.find(notification.post_id).title}" %>
+<% elsif notification.action == "commented"%>
+    <%= User.find(notification.notif_user).fullname has commented on your post "#{Post.find(notification.post_id).title}" %>
+<% end %>
+</div>
