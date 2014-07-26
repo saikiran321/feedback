@@ -1,6 +1,6 @@
 html,
 body {
-
+  background:rgb(245,245,245);
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 }
@@ -10,7 +10,7 @@ body {
 }
 /* Wrapper for page content to push down footer */
 .container {
-  background-color:rgb(255,255,255);
+  //background-color:rgb(255,255,255);
   min-height: 100%;
   max-width:960px;
   height: auto;
@@ -157,10 +157,11 @@ body {
 }
 
 .post_div{
+  background:rgb(255,255,255);
   width:70%;
   float:left;
   padding:15px 15px 20px 15px;
-
+  margin-bottom:15px;
   box-shadow:0 0px 5px -2px rgba(100,100,100,0.9);
 }
 
@@ -192,13 +193,17 @@ ul{
 .comment_div{
 
   padding:15px 10px 10px 10px;
-  border-bottom:1px solid rgb(255,255,255);
+  margin: 0 0 5px 0;
   background-color:rgb(240,240,240);
 }
 
 .sidebar{
+  margin:15px 0;
+  padding:15px;
   width:28%;
   float:right;
+  background:rgb(255,255,255);
+  box-shadow:0 0px 5px -2px rgba(100,100,100,0.9);
 }
 
 li{
