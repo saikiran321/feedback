@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712213731) do
+ActiveRecord::Schema.define(version: 20140726104957) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
     t.integer  "post_id"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.integer  "notif_user"
+    t.string   "action"
+    t.boolean  "seen"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,17 +54,27 @@ ActiveRecord::Schema.define(version: 20140712213731) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "roll"
-    t.string   "email"
-    t.string   "remember_token"
-    t.string   "password_digest"
-    t.string   "hostel"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "user_id"
+    t.string    "username",          limit: 15,              null: false
+    t.string    "fullname",          limit: 80,              null: false
+    t.integer   "room"
+    t.string    "hostel",            limit: 40
+    t.text      "profile_picture",                           null: false
+    t.datetime  "time_of_reg"
+    t.string    "current_mess",      limit: 40
+    t.string    "comment",           limit: 50
+    t.string    "remember_token",    limit: 128
+    t.string    "bgroup",            limit: 5
+    t.integer   "contact",           limit: 8,   default: 0
+    t.string    "email"
+    t.string    "nick"
+    t.string    "gender",            limit: 1
+    t.string    "picaddress",        limit: 50
+    t.timestamp "updated_timestamp"
+    t.text      "usertype"
   end
 
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
-  add_index "users", ["roll"], name: "index_users_on_roll", unique: true, using: :btree
+  add_index "users", ["username"], name: "UNIQUE", unique: true, using: :btree
+  add_index "users", ["username"], name: "username", unique: true, using: :btree
 
 end
