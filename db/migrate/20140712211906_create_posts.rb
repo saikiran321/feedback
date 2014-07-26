@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.belongs_to :user, null: false
       t.text :title, null: false
+      t.string :file_link
       t.text :content, null: false
       t.integer :notifications_count, null: false, default: 0
 

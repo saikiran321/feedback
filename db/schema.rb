@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140726104957) do
   create_table "posts", force: true do |t|
     t.integer  "user_id",                         null: false
     t.text     "title",                           null: false
+    t.string   "file_link"
     t.text     "content",                         null: false
     t.integer  "notifications_count", default: 0, null: false
     t.datetime "created_at"
@@ -57,8 +58,7 @@ ActiveRecord::Schema.define(version: 20140726104957) do
   add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string   "name",        limit: 20,             null: false
-    t.integer  "posts_count",            default: 0, null: false
+    t.string   "name",       limit: 20, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
