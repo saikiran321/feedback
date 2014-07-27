@@ -8,6 +8,7 @@ class NotificationsController < ApplicationController
   end
 
   def show
-    @notif = Notification.find(params[:id])
+    @notification = Notification.find(params[:id])
+    @notification.update_attribute(:seen, true)
   end
 end

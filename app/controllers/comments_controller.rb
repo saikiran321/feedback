@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
         @notif.user_id = User.find(Post.find(params[:post_id]).user_id).id
         @notif.post_id = Integer(params[:post_id])
         @notif.notif_user = current_user.id
-        @notif.action = 'commented'
+        @notif.action = 'commented on your post'
         @notif.save
       end
       @comments = Comment.where("post_id = ?", Post.find(params[:post_id]))
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
           @notif.user_id = User.find(comment.user_id).id
           @notif.post_id = Integer(params[:post_id])
           @notif.notif_user = current_user.id
-          @notif.action = 'comment'
+          @notif.action = 'commented on a post that you have commented'
           @notif.save
         end
       end
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
       @notif.user_id = User.find(Comment.find(params[:id]).user_id).id
       @notif.post_id = Post.find(Comment.find(params[:id]).post_id).id
       @notif.notif_user = current_user.id
-      @notif.action = 'deleted'
+      @notif.action = 'deleted your comment on a post'
       @notif.save
     end
     Comment.find(params[:id]).destroy
