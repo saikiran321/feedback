@@ -18,14 +18,14 @@
 $(document).ready(function(){
   $(".comment_container").hide();
   $(".expand_comment").click(function(){
-    if($(this).html()=="view comments"){
+    if($(this).html()=="View Comments"){
       $(this).siblings(".comment_container").stop().slideDown();
-      $(this).html("hide comments");
+      $(this).html("Hide Comments");
     }
     else{
       
       $(this).siblings(".comment_container").stop().slideUp();
-      $(this).html("view comments");
+      $(this).html("View Comments");
     }
   });
 });

@@ -9,12 +9,12 @@
       <% # send_file "/public/uploads/#{post.file_link}", type: 'image/jpeg', disposition: 'inline' %>
     <% end %>
       <br>
-    <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?"} %>
+    <%= link_to "Delete Post", post, method: :delete, class:"btn btn-xs btn-default btn-danger", data: { confirm: "Are you sure?"} %>
   <% end %>
   </div>
-  <span>Tags:<% @tags = Post.includes(:tags).find(post.id).tags %>
+  <div class="tags_container">Tags:<% @tags = Post.includes(:tags).find(post.id).tags %>
   <% @tags.each do |tag| %>
-      <%= link_to tag.name.capitalize, tag, class:"tag_link" %>
+      <%= link_to tag.name.capitalize, tag, class:"tag_link btn btn-primary btn-xs btn-success" %>
   <% end %>
   </span>
   <br>
@@ -22,9 +22,8 @@
   <span>
     <span class="glyphicon glyphicon-user"></span> <%= User.find(post.user_id).fullname.capitalize %> | <span class="glyphicon glyphicon-time"></span> <%= post.created_at %>
 </span>
-  <br>
-  <span class="expand_comment">view comments</span>
-  <br>
+  <span class="expand_comment btn btn-default">view comments</span>
+  <br><br>
   <div class="comment_container">
     <ul>
       <% @comments = Comment.where("post_id = ?", post.id) %>
