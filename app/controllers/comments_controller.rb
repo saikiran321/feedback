@@ -14,6 +14,17 @@ class CommentsController < ApplicationController
         @notif.action = 'commented'
         @notif.save
       end
+      @comments = Comment.where("post_id = ?", Post.find(params[:post_id]))
+      @comments.each do |comment|
+        if current_user.id != User.find(comment.user_id).id
+          @notif = Notification.new
+          @notif.user_id = User.find(comment.user_id).id
+          @notif.post_id = Integer(params[:post_id])
+          @notif.notif_user = current_user.id
+          @notif.action = 'comment'
+          @notif.save
+        end
+      end
       flash[:success]="Commented successfully"
       redirect_to :back
     else
