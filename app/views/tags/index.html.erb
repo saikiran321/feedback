@@ -5,8 +5,6 @@
   <%= render "shared/sidebar" %>
 
 <br>
-<div class="intro">This is the home page of feedback portal.<br>
-We will list all the complaints over here, along with a side menu bar for categories or whatever.</div>
 <% @posts.each do |post| %>
   <%= render post %>
 <% end %>
