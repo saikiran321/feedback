@@ -16,7 +16,7 @@
   </span>
   <br>
   <span>
-    Posted by "<%= User.find(post.user_id).fullname.capitalize %>" | <%= post.created_at %>
+    <span class="glyphicon glyphicon-user"></span> <%= User.find(post.user_id).fullname.capitalize %> | <span class="glyphicon glyphicon-time"></span> <%= post.created_at %>
 </span>
   <br>
   <span class="expand_comment">view comments</span>

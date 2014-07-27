@@ -19,11 +19,12 @@ $(document).ready(function(){
   $(".comment_container").hide();
   $(".expand_comment").click(function(){
     if($(this).html()=="view comments"){
-      $(this).siblings(".comment_container").slideDown();
+      $(this).siblings(".comment_container").stop().slideDown();
       $(this).html("hide comments");
     }
     else{
-      $(this).siblings(".comment_container").slideUp();
+      
+      $(this).siblings(".comment_container").stop().slideUp();
       $(this).html("view comments");
     }
   });
