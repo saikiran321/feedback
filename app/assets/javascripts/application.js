@@ -16,5 +16,15 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $(".expand_comments").next(".comments_container").hide();
+  $(".comment_container").hide();
+  $(".expand_comment").click(function(){
+    if($(this).html()=="view comments"){
+      $(this).siblings(".comment_container").slideDown();
+      $(this).html("hide comments");
+    }
+    else{
+      $(this).siblings(".comment_container").slideUp();
+      $(this).html("view comments");
+    }
+  });
 });
