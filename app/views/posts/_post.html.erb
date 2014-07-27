@@ -5,6 +5,9 @@
   <div class="post_content">
     <%= post.content %>
     <% if signed_in? && (current_user.usertype || current_user?(User.find(post.user_id)))%>
+    <% if post.file_link %>
+      <% # send_file "/public/uploads/#{post.file_link}", type: 'image/jpeg', disposition: 'inline' %>
+    <% end %>
       <br>
     <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?"} %>
   <% end %>
@@ -14,6 +17,7 @@
       <%= link_to tag.name.capitalize, tag, class:"tag_link" %>
   <% end %>
   </span>
+  <br>
   <br>
   <span>
     <span class="glyphicon glyphicon-user"></span> <%= User.find(post.user_id).fullname.capitalize %> | <span class="glyphicon glyphicon-time"></span> <%= post.created_at %>
