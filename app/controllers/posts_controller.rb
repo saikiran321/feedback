@@ -32,6 +32,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    if current_user.id != User.find(Post.find(params[:id]).user_id).id
+      @notif = Notification.new
+      @notif.user_id = User.find(Post.find(params[:id]).user_id).id
+      @notif.post_id = Integer(params[:id])
+      @notif.notif_user = current_user.id
+      @notif.action = "deleted your post with title '#{Post.find(params[:id]).title}'"
+      @notif.save
+    end
     Post.find(params[:id]).destroy
     flash[:success] = "Succesfully deleted the post"
     redirect_to :back
