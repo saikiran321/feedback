@@ -45,11 +45,8 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
-  def edit
-    @post = Post.find(params[:id])
-    @comments = Comment.where("post_id = ?", params[:id])
+  def get_file
+    send_file "/public/uploads/#{Post.find(params[:post_id]).file_link}", type: 'image/jpeg', disposition: 'inline' 
   end
 
-  def update
-  end
 end

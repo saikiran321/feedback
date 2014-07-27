@@ -4,10 +4,9 @@
   </div>
   <div class="post_content">
     <%= post.content %>
-    <% if signed_in? && (current_user.usertype || current_user?(User.find(post.user_id)))%>
-    <% if post.file_link %>
-      <% # send_file "/public/uploads/#{post.file_link}", type: 'image/jpeg', disposition: 'inline' %>
+    <% if post.file_link%>
     <% end %>
+    <% if signed_in? && (current_user.usertype || current_user?(User.find(post.user_id)))%>
       <br>
     <%= link_to "Delete Post", post, method: :delete, class:"btn btn-xs btn-default btn-danger", data: { confirm: "Are you sure?"} %>
   <% end %>
