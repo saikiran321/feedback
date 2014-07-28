@@ -49,4 +49,23 @@ class PostsController < ApplicationController
     send_file "/public/uploads/#{Post.find(params[:post_id]).file_link}", type: 'image/jpeg', disposition: 'inline' 
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.solved = true
+    if @post.save
+      if  current_user.id != User.find(Post.find(params[:id]).user_id).id
+        @notif = Notification.new
+        @notif.user_id = User.find(Post.find(params[:id]).user_id).id
+        @notif.post_id = Integer(params[:id])
+        @notif.notif_user = current_user.id
+        @notif.action = "marked your post as solved"
+        @notif.save
+      end
+      flash[:success] = "Successfully marked the status of the post as solved."
+      redirect_to :back
+    else
+      flash[:error] = "Could not save the status of the post. Please try again."
+    end
+  end
+
 end

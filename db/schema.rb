@@ -38,11 +38,12 @@ ActiveRecord::Schema.define(version: 20140726104957) do
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "posts", force: true do |t|
-    t.integer  "user_id",                         null: false
-    t.text     "title",                           null: false
+    t.integer  "user_id",                             null: false
+    t.text     "title",                               null: false
     t.string   "file_link"
-    t.text     "content",                         null: false
-    t.integer  "notifications_count", default: 0, null: false
+    t.boolean  "solved",              default: false, null: false
+    t.text     "content",                             null: false
+    t.integer  "notifications_count", default: 0,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
