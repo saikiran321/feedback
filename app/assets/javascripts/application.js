@@ -17,6 +17,7 @@
 
 var ready = function(){
   $(".comment_container").hide();
+
   $(".expand_comment").click(function(){
     if($(this).html()=="View Comments"){
       $(this).siblings(".comment_container").stop().slideDown();
@@ -29,7 +30,6 @@ var ready = function(){
     }
   });
 
-  $('.dropdown-toggle').dropdown();
 };
 $(document).ready(ready);
 $(document).on('page:load', ready);
