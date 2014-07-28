@@ -1,5 +1,7 @@
 <div class="sidebar">
-  <br>
+  <form action="/search" method="get">
+  <%= text_field_tag :q, params[:q], placeholder:"Search", class:"form-control search_box" %>
+  </form>
   Categories:<br>
     <% for tag in Tag.all %>
     <li>

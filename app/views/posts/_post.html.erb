@@ -30,6 +30,7 @@
 </span>
   <span class="expand_comment btn btn-xs btn-default">View Comments</span>
   <br><br>
+  
   <div class="comment_container">
     <ul>
       <% @comments = Comment.where("post_id = ?", post.id) %>

@@ -10,6 +10,8 @@ body {
   border:2px solid rgb(190,190,190);
 }
 
+
+
 /* Wrapper for page content to push down footer */
 .container {
   //background-color:rgb(255,255,255);
@@ -57,6 +59,12 @@ body {
 .navbar a {
   color:#333A3F;
 }
+
+.search_box {
+  border-radius:0px;
+  margin:5px 0;
+}
+
 .sidebar_link{
   margin:1px;
   display:block;
