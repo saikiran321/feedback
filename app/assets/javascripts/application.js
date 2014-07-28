@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+var ready = function(){
   $(".comment_container").hide();
   $(".expand_comment").click(function(){
     if($(this).html()=="View Comments"){
@@ -28,4 +28,6 @@ $(document).ready(function(){
       $(this).html("View Comments");
     }
   });
-});
+};
+$(document).ready(ready);
+$(document).on('page:load', ready);
