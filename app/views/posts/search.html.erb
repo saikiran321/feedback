@@ -1,0 +1,10 @@
+<%= content_for :title do %>
+  Search
+<% end %>
+
+<%= render "shared/sidebar" %>
+
+<br>
+<% @posts.each do |post| %>
+  <%= render post %>
+<% end %>

@@ -10,4 +10,9 @@ class Post < ActiveRecord::Base
   validates :content, presence: true
   validates :user_id, presence: true
   validates :notifications_count, presence: true
+
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    where("title LIKE ? OR content LIKE ?", "%#{search}%","%#{search}%")
+  end
 end
