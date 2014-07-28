@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
         @notif.action = 'commented on your post'
         @notif.save
       end
-      @comments = Comment.where("post_id = ?", Post.find(params[:post_id]))
+      @comments = Comment.where("post_id = ?", Post.find(params[:post_id])).uniq.pluck(:user_id)
       @comments.each do |comment|
-        if current_user.id != User.find(comment.user_id).id && User.find(comment.user_id).id != User.find(Post.find(params[:post_id]).user_id).id
+        if ( current_user.id != User.find(comment.user_id).id && User.find(comment.user_id).id != User.find(Post.find(params[:post_id]).user_id).id)
           @notif = Notification.new
           @notif.user_id = User.find(comment.user_id).id
           @notif.post_id = Integer(params[:post_id])
