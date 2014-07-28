@@ -58,7 +58,7 @@ class PostsController < ApplicationController
         @notif.user_id = User.find(Post.find(params[:id]).user_id).id
         @notif.post_id = Integer(params[:id])
         @notif.notif_user = current_user.id
-        @notif.action = "marked your post as solved"
+        @notif.action = "marked one of your posts as solved"
         @notif.save
       end
       flash[:success] = "Successfully marked the status of the post as solved."
@@ -66,6 +66,10 @@ class PostsController < ApplicationController
     else
       flash[:error] = "Could not save the status of the post. Please try again."
     end
+  end
+
+  def solved
+    @posts = Post.where("solved = ?", true)
   end
 
 end

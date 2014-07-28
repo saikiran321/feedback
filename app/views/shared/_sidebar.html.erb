@@ -1,11 +1,12 @@
 <div class="sidebar">
   <br>
-  this is the side bar....
-  <br>
   Categories:<br>
     <% for tag in Tag.all %>
     <li>
     <%= link_to "#{tag.name.capitalize} <span class='badge pull-right'>#{Tag.includes(:posts).find(tag.id).posts.length}</span>".html_safe, tag, class:"sidebar_link" %>
     </li>
   <% end %>
+  <li>
+  <%= link_to "Resolved Complaints(#{Post.where("solved=?",true).length})", solved_path %>
+  </li>
 </div>
