@@ -18,13 +18,14 @@
     <span class="glyphicon glyphicon-user"></span> <%= User.find(post.user_id).fullname.capitalize %> | <span class="glyphicon glyphicon-time"></span> <%= post.created_at %>
 
     <% if signed_in? && (current_user.usertype || current_user?(User.find(post.user_id)))%> | 
-    <%= link_to "<span class='glyphicon glyphicon-trash'></span> Delete Post".html_safe, post, method: :delete, class:"btn btn-xs btn-default btn-danger", data: { confirm: "Are you sure?"} %>
+    <%= link_to "<span class='glyphicon glyphicon-trash'></span> Delete Post".html_safe, post, method: :delete, class:"delete_btn btn btn-xs", data: { confirm: "Are you sure?"} %>
   <% end %>
     <% if signed_in? && (current_user.usertype && !post.solved) %> | 
-    <%= link_to "<span class='glyphicon glyphicon-trash'></span> Solved ".html_safe, post, method: :put, class:"btn btn-xs btn-default btn-danger", data: { confirm: "Are you sure you want to mark this solved?"} %>
+    <%= link_to "<span class='glyphicon glyphicon-ok'></span> Resolve ".html_safe, post, method: :put, class:"delete_btn btn btn-xs", data: { confirm: "Are you sure you want to mark this solved?"} %>
   <% end %>
     <% if post.solved %> | 
-    <span class='glyphicon glyphicon-ok'>Solved</span>
+    <%= link_to "<span class='glyphicon glyphicon-ok'></span> Solved ".html_safe, '#', class:"solved_btn btn btn-xs" %>
+
   <% end %>
 </span>
   <span class="expand_comment btn btn-default">View Comments</span>
