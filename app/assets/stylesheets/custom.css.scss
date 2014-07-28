@@ -22,6 +22,22 @@ body {
   padding: 0 0 75px;
 }
 
+.dropdown-menu>li>a {
+  white-space:normal;
+}
+.badge_notify{
+   background:rgb(0, 176, 211);
+   position:relative;
+   top: -10px;
+   left: -6px;
+  font-size:0.7em;
+  padding:0 3px 3px 3px;
+  border-radius:10px;
+  color:rgb(0,0,0);
+}
+.glyphicon-bell {
+  font-size:1.2em;
+}
 .delete_btn {
   color:red;
   padding:0px;

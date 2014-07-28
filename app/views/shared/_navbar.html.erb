@@ -27,7 +27,7 @@
       <% else %>
         <li class="dropdown">
         <% @notifs = Notification.where("user_id=? AND seen=0", current_user) %>
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notifications <span class="badge"><%= @notifs.length %></span> <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"><% if @notifs.length %><span class="badge_notify"><%= @notifs.length %></span><% end %></a>
         <ul class="dropdown-menu">
           <% @notifs.each do |notif| %>
             <li> <%= link_to "#{User.find(notif.notif_user).fullname} has #{notif.action}", notif %></li>
