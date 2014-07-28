@@ -3,7 +3,7 @@
   Categories:<br>
     <% for tag in Tag.all %>
     <li>
-    <%= link_to "#{tag.name.capitalize} <span class='badge pull-right'>#{Tag.includes(:posts).find(tag.id).posts.length}</span>".html_safe, tag, class:"sidebar_link" %>
+    <%= link_to "#{tag.name.capitalize} <span class='badge pull-right'>#{Tag.includes(:posts).find(tag.id).posts.where("solved=?",false).length}</span>".html_safe, tag, class:"sidebar_link" %>
     </li>
   <% end %>
   <li>
