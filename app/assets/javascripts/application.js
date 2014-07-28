@@ -28,6 +28,8 @@ var ready = function(){
       $(this).html("View Comments");
     }
   });
+
+  $('.dropdown-toggle').dropdown();
 };
 $(document).ready(ready);
 $(document).on('page:load', ready);
