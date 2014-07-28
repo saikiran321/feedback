@@ -30,7 +30,8 @@ gem 'net-ldap'
 #gem for using the forem rails forum
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-
+#gem for using search in portal
+gem 'searchkick'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
