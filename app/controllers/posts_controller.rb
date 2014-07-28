@@ -72,4 +72,8 @@ class PostsController < ApplicationController
     @posts = Post.where("solved = ?", true)
   end
 
+  def search
+    @posts = Post.search params[:search]
+  end
+
 end
