@@ -7,6 +7,6 @@
     </li>
   <% end %>
   <li>
-  <%= link_to "Resolved Complaints(#{Post.where("solved=?",true).length})", solved_path %>
+  <%= link_to "Resolved Complaints<span class='badge pull-right'>#{Post.where("solved=?",true).length}</span>".html_safe, solved_path, class:"sidebar_link sidebar_link_other" %>
   </li>
 </div>
