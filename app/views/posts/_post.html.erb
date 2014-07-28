@@ -15,7 +15,7 @@
   </div>
   <br>
   <span>
-    <span class="glyphicon glyphicon-user"></span> <%= User.find(post.user_id).username %> | <%= User.find(post.user_id).fullname.capitalize %> | <span class="glyphicon glyphicon-time"></span> <%= post.created_at %>
+    <span class="glyphicon glyphicon-user"></span> <%= User.find(post.user_id).username %> | <%= User.find(post.user_id).fullname.capitalize %> | <span class="glyphicon glyphicon-time"></span> <%= post.created_at.strftime("%d-%m-%y   %l:%M %p") %>
 <br>
     <% if signed_in? && (current_user.usertype || current_user?(User.find(post.user_id)))%>
     <%= link_to "<span class='glyphicon glyphicon-trash'></span> Delete Post".html_safe, post, method: :delete, class:"delete_btn btn btn-xs", data: { confirm: "Are you sure?"} %>
