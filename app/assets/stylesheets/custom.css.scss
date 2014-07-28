@@ -24,7 +24,11 @@ body {
   padding: 0 0 75px;
 }
 
-.dropdown-menu>li>a {
+.notification_div {
+  width:400px;
+  white-space:normal;
+}
+.dropdown li a {
   white-space:normal;
 }
 .badge_notify{

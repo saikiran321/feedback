@@ -30,7 +30,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"><% if @notifs.length %><span class="badge_notify"><%= @notifs.length %></span><% end %></a>
         <ul class="dropdown-menu">
           <% @notifs.each do |notif| %>
-            <li> <%= link_to "#{User.find(notif.notif_user).fullname} has #{notif.action}", notif %></li>
+            <li> <%= link_to "#{User.find(notif.notif_user).fullname} has #{notif.action}", notif, class:"notification_div" %></li>
         <% end %>
           <li> <%= link_to "All Notifications", notifications_path %></li>
         </ul>
