@@ -6,5 +6,7 @@
 
 <br>
 <% @posts.each do |post| %>
+  <%if !post.solved%>
   <%= render post %>
+<% end %>
 <% end %>

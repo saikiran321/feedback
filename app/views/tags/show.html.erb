@@ -2,9 +2,11 @@
   <%= @tag.name.capitalize %> complaints
 <% end %>
 
-  <%= render "shared/sidebar" %>
+<%= render "shared/sidebar" %>
 
 <br>
 <% @posts.each do |post| %>
+  <%if !post.solved%>
   <%= render post %>
+<% end %>
 <% end %>
