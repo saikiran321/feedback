@@ -1,0 +1,2 @@
+class AngersController < ApplicationController
+end
