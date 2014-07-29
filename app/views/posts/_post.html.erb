@@ -3,7 +3,7 @@
     <%= link_to post.title.capitalize, post_path(id: post.id) %>
   </div>
   <div class="post_content">
-    <%= post.content %>
+    <%= raw post.content %>
     <% if post.file_link%>
     <% end %>
       <br>

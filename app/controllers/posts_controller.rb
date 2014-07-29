@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     end
 
     @post.user = current_user
+    tag_this @post
     if @post.save
       flash[:success] = "Successfully lodged a complaint"
       redirect_to root_url
