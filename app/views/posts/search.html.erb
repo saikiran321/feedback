@@ -6,7 +6,7 @@
   <%= render "shared/sidebar" %>
 
 <br>
-<% if @posts_title && @posts_title.length!=0 %>
+<% if @posts_title and @posts_title.length!=0 %>
   <div>Here are the resultant posts for your search string from all the post titles: </div>
   <br>
 <% @posts_title.each do |post| %>
@@ -14,7 +14,7 @@
 <% end %>
 <% end %>
 
-<% if @posts_contents && @posts_contents.length!=0%>
+<% if @posts_contents and @posts_contents.length!=0%>
   <div>Here are the resultant posts for your search string from all the post contents: </div>
   <br>
 <% @posts_contents.each do |post| %>
@@ -22,12 +22,17 @@
 <% end %>
 <% end %>
 
-<% if @posts_comments && @posts_comments.length!=0 %>
+<% if @posts_comments and @posts_comments.length!=0 %>
   <div>Here are the resultant posts for your search string from all the comments: </div>
   <br>
 <% @posts_comments.each do |post| %>
   <%= render post %>
 <% end %>
+<% end %>
+
+<% if @posts_comments.length==0 and @posts_contents.length==0 and @posts_title.length==0 %>
+  <br>
+  <div>No Search results found.</div>
 <% end %>
 
 <% else %>
