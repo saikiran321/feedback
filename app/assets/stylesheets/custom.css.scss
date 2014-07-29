@@ -23,14 +23,26 @@ body {
   /* Pad bottom by footer height */
   padding: 0 0 75px;
 }
-
-.notification_div {
+.bold {
+  font-weight:900;
+}
+.notification_navbar_div {
+  font-size:90%;
   width:400px;
   white-space:normal;
+}
+.dropdown ul{
+  border:2px solid rgb(196,196,196);
+
+}
+
+.signin_div{
+  width:200px;
 }
 .dropdown li a {
   white-space:normal;
 }
+
 .badge_notify{
    background:rgb(0, 176, 211);
    position:relative;
@@ -64,6 +76,9 @@ body {
   color:#333A3F;
 }
 
+.allnotifs_btn a{
+  display:inline;
+}
 .search_box {
   border-radius:0px;
   margin:5px 0;

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top navbar-collapse" role="navigation">
+<nav class="navbar navbar-fixed-top navbar-collapse " role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -28,19 +28,21 @@
         <li class="dropdown">
         <% @notifs = Notification.where("user_id=? AND seen=0", current_user) %>
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"><% if @notifs.length %><span class="badge_notify"><%= @notifs.length %></span><% end %></a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu notification_navbar_div" >
           <% @notifs.each do |notif| %>
-            <li> <%= link_to "#{User.find(notif.notif_user).fullname} has #{notif.action}", notif, class:"notification_div" %></li>
+            <li> <%= link_to "<span class='bold'>#{User.find(notif.notif_user).fullname}</span> has #{notif.action}".html_safe, notif%></li>
         <% end %>
-          <li> <%= link_to "All Notifications", notifications_path %></li>
+          <li class="divider"></li>
+          <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path %></li>
         </ul>
         </li>
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"> </span> <%= current_user.fullname%> <b class="caret"></b></a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu signin_div">
           <li> <%= link_to "My complaints", current_user %></li>
           <li><%= link_to "Sign Out", signout_path, method: 'delete' %></li>
-          <li> <%= link_to "All Notifications", notifications_path %></li>
+          <li class="divider"></li>
+          <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path%></li>
         </ul>
         </li>
       <% end %>
