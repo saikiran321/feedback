@@ -6,8 +6,28 @@
   <%= render "shared/sidebar" %>
 
 <br>
-<% @posts.each do |post| %>
+<% if @posts_title.length!=0 %>
+  <div>Here are the resultant posts for your search string from all the post titles: </div>
+  <br>
+<% @posts_title.each do |post| %>
   <%= render post %>
+<% end %>
+<% end %>
+
+<% if @posts_contents.length!=0%>
+  <div>Here are the resultant posts for your search string from all the post contents: </div>
+  <br>
+<% @posts_contents.each do |post| %>
+  <%= render post %>
+<% end %>
+<% end %>
+
+<% if @posts_comments.length!=0 %>
+  <div>Here are the resultant posts for your search string from all the comments: </div>
+  <br>
+<% @posts_comments.each do |post| %>
+  <%= render post %>
+<% end %>
 <% end %>
 
 <% else %>
