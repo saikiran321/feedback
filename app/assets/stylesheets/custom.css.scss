@@ -27,6 +27,8 @@ body {
   font-weight:900;
 }
 .notification_navbar_div {
+  height:inherit;
+  overflow:auto;
   font-size:90%;
   width:400px;
   white-space:normal;
