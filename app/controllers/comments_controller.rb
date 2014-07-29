@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment.content = params[:comment][:content]
     @comment.user_id = current_user.id
     @comment.post_id = Integer(params[:post_id])
+    @comment.tag_it
     if @comment.save
       if current_user.id != User.find(Post.find(params[:post_id]).user_id).id
         @notif = Notification.new
