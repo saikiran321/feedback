@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  include CommentsHelper
+  include ApplicationHelper
 
   def create
     @comment = Comment.new

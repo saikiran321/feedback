@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  include ApplicationHelper
+
   def show
     @post = Post.find(params[:id])
     @comments = Comment.where("post_id = ?", params[:id])
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
     end
 
     @post.user = current_user
-    tag_this @post
+    tag_it @post
     if @post.save
       flash[:success] = "Successfully lodged a complaint"
       redirect_to root_url
