@@ -6,7 +6,7 @@
 <% else %>  
   <% @post = Post.find(notification.post_id) %>
   <%= link_to @user.fullname, @user %> has <%= notification.action %>
-  <%= render @post %>
+  <%= render @post %><br>
   <% end %>
   <br>
 </div>
