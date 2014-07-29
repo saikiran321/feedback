@@ -2,7 +2,15 @@
   <%= @user.fullname.capitalize %>
 <% end %>
 
-<br>
+<% if signed_in? %>
+
+  <br>
 <% @posts.each do |post| %>
   <%= render post %>
+<% end %>
+
+<%else%>
+
+  <% render 'shared/unsigned' %>
+
 <% end %>

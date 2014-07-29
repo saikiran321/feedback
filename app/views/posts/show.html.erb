@@ -2,4 +2,10 @@
   <%= @post.title %>
 <% end %>
 
-<%= render @post %>
+<% if signed_in? %>
+
+  <%= render @post %>
+
+<% else %>
+  <%= render 'shared/unsigned' %>
+<% end %>
