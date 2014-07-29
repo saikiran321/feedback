@@ -29,9 +29,10 @@
         <% @notifs = Notification.where("user_id=? AND seen=0", current_user) %>
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"><% if @notifs.length %><span class="badge_notify"><%= @notifs.length %></span><% end %></a>
         <ul class="dropdown-menu notification_navbar_div" >
+          <div class="notifs_container">
           <% @notifs.each do |notif| %>
-            <li> <%= link_to "<span class='bold'>#{User.find(notif.notif_user).fullname}</span> has #{notif.action}".html_safe, notif%></li>
-        <% end %>
+            <%= link_to "<li><span class='bold'>#{User.find(notif.notif_user).fullname}</span> has #{notif.action}</li>".html_safe, notif%></li>
+        <% end %></div>
           <li class="divider"></li>
           <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path %></li>
         </ul>

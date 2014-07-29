@@ -33,6 +33,21 @@ body {
   width:400px;
   white-space:normal;
 }
+
+.notifs_container { 
+  height:300px;
+  overflow:auto;
+  padding: 0 0 0 5px;
+}
+.notifs_container li:hover {
+  background:#eee;
+}
+.notifs_container a:hover {
+  text-decoration:none;
+}
+.notifs_container a li{
+  padding:5px;
+}
 .dropdown ul{
   border:2px solid rgb(196,196,196);
 
