@@ -1,11 +1,13 @@
 class CommentsController < ApplicationController
 
+  include CommentsHelper
+
   def create
     @comment = Comment.new
     @comment.content = params[:comment][:content]
     @comment.user_id = current_user.id
     @comment.post_id = Integer(params[:post_id])
-    @comment.tag_it
+    tag_it @comment
     if @comment.save
       if current_user.id != User.find(Post.find(params[:post_id]).user_id).id
         @notif = Notification.new
