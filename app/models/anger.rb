@@ -6,4 +6,5 @@ class Anger < ActiveRecord::Base
   validates :level, uniqueness: {scope: [:user_id, :video_id]}
   validates :user_id, presence: true
   validates :post_id, presence: true
+
 end

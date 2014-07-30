@@ -1,0 +1,8 @@
+<div id="follow_form">
+  <% post = Post.find(post_id)%>
+  <% if post.following?(current_user) %>
+    <%= render partial: 'posts/unfollow', locals: { post_id: post.id } %>
+<% else %>
+  <%= render partial: 'posts/follow', locals: { post_id: post.id } %>
+<% end %>
+</div>
