@@ -14,6 +14,7 @@ class Post < ActiveRecord::Base
   validates :content, presence: true
   validates :user_id, presence: true
   validates :notifications_count, presence: true
+  validates :anonymous, presence: true
 
   def self.search(search, designation)
     search_condition = "%" + search + "%"

@@ -25,6 +25,7 @@
                  <% end %>
                  </div>
                  <br>
+                 <% if !post.anonymous or current_user.usertype %>
                  <span>
                    <span class="glyphicon glyphicon-user"></span> <%= User.find(post.user_id).username %> | <%= User.find(post.user_id).fullname.capitalize %> | <span class="glyphicon glyphicon-time"></span> <%= post.created_at.strftime("%d-%m-%y   %l:%M %p") %>
                  <br>
@@ -39,6 +40,11 @@
 
                  <% end %>
                  </span>
+               <% else %>
+                 <span>
+                   <span class="glyphicon glyphicon-user"></span> Anonymous | <span class="glyphicon glyphicon-time"></span> <%= post.created_at.strftime("%d-%m-%y   %l:%M %p") %>
+                 </span>
+               <% end %>
                  <span class="expand_comment btn btn-xs btn-default">View Comments</span>
                  <br><br>
 

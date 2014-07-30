@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140730111256) do
     t.boolean  "solved",              default: false, null: false
     t.text     "content",                             null: false
     t.integer  "notifications_count", default: 0,     null: false
+    t.boolean  "anonymous",           default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

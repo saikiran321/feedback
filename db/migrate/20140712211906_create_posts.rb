@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.boolean :solved, null: false, default: false
       t.text :content, null: false
       t.integer :notifications_count, null: false, default: 0
+      t.boolean :anonymous, null:false, default: false
 
       t.timestamps
     end
