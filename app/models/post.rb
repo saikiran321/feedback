@@ -4,6 +4,10 @@ class Post < ActiveRecord::Base
   has_many :comments, inverse_of: :post, dependent: :destroy
   has_many :notifications, inverse_of: :post
   has_and_belongs_to_many :tags
+  has_many :follows
+  has_many :users, through: :follows
+  has_many :angers
+  has_many :users, through: :angers
 
   validates :title, presence: true
   validates :tags, presence: true
@@ -14,5 +18,17 @@ class Post < ActiveRecord::Base
   def self.search(search, designation)
     search_condition = "%" + search + "%"
     where("#{designation} LIKE ?", "%#{search}%")
+  end
+
+  def following?(user)
+    follows.where("user_id=?", user.id)
+  end
+
+  def follow!(user)
+    follows.create!(user_id: user.id)
+  end
+
+  def unfollow!(user)
+    follows.find_by(user_id: user.id).destroy
   end
 end
