@@ -28,6 +28,16 @@ body {
 .float_right {
   float:right;
 }
+
+.angry_icon {
+  height:20px;
+  width:20px;
+  float:left;
+  background-size: 20px 20px;
+  background-image:url(image-path('icons/icon_angry.png'));
+  background-repeat:no-repeat;
+  opacity:0.5;
+}
 .search_dropdown {
   padding:5px 5px 5px 10px;
 }
