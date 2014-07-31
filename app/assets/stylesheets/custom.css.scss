@@ -327,6 +327,11 @@ ul{
   font-weight:900;
 }
 
+.follow_btn, .unfollow_btn {
+  border-radius:0px;
+  //background:rgb(0,0,150);
+}
+
 .comment_container input, .comment_container textarea {
   border-radius:0px;
 }

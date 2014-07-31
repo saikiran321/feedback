@@ -10,12 +10,12 @@
     <% if post.following?(current_user) %>
       <%= form_for(post.follows.build(user_id: current_user.id)) do |f| %>
       <div><%= f.hidden_field :user_id %></div>
-    <%= f.submit "Follow", class: "follow_btn btn btn-large btn-primary" %>
+    <%= f.submit "Follow", class: "follow_btn btn btn-xs btn-info" %>
   <% end %>
   <% else %>
       <%= form_for(Post.find(post_id).follows.find_by(user_id: current_user.id),
                    html: { method: :delete }) do |f| %>
-                   <%= f.submit "Unfollow", class: "btn btn-large" %>
+                   <%= f.submit "Unfollow", class: "unfollow_btn btn btn-xs btn-default" %>
                  <% end %>
                  <% end %>
                  </div>
