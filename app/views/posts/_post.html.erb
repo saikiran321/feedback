@@ -7,7 +7,7 @@
     <% if post.file_link%>
     <% end %>
     <br>
-    <div class="<%= post.id %>">
+    <div class="<%=post.id%>">
       <% if post.following?(current_user).length==0 %>
         <%= render partial: 'shared/follow', locals: { post: post } %>
     <% else %>
@@ -43,7 +43,7 @@
   <br><br>
 
   <div class="comment_container">
-    <ul>
+    <ul class="<%=post.id%>">
       <% @comments = Comment.where("post_id = ?", post.id) %>
       <% if @comments.length==0 %>
         <div>No comments have been posted on this post yet.</div>
@@ -54,7 +54,7 @@
     </ul>
 
     <% if signed_in? %>
-      <%= form_for(:comment, url: comments_path, method: 'post' , :html => { :class => "form-horizontal"}) do |f|  %>
+      <%= form_for(:comment, url: comments_path, method: 'post' , :html => { :class => "form-horizontal"}, remote: true) do |f|  %>
       <%= f.text_area :content, size: "60x3", class:"form-control", placeholder:"Add a comment" %>
     <%= hidden_field_tag(:post_id, "#{post.id}")%>
     <%= f.submit "Comment", class:"btn btn-primary" %>
