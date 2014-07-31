@@ -1,1 +1,1 @@
-$(".unfollow").attr("value","Follow")
+$(".<%= @post.id %>").html("<%= escape_javascript(render partial: 'shared/follow', locals: { post: @post }) %>")
