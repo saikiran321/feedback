@@ -23,11 +23,11 @@
   <br>
   <span>
     <% if !post.anonymous %>
-    <span class="glyphicon glyphicon-user"></span> <%= User.find(post.user_id).username %> | <%= User.find(post.user_id).fullname.capitalize %> | <span class="glyphicon glyphicon-time"></span> <%= post.created_at.strftime("%d-%m-%y   %l:%M %p") %>
+      <span class="glyphicon glyphicon-user"></span> <%= User.find(post.user_id).username %> | <%= User.find(post.user_id).fullname.capitalize %> | <span class="glyphicon glyphicon-time"></span> <%= post.created_at.strftime("%d-%m-%y   %l:%M %p") %>
 <%else%>
-    <span class="glyphicon glyphicon-user"></span> Anonymous | <span class="glyphicon glyphicon-time"></span> <%= post.created_at.strftime("%d-%m-%y   %l:%M %p") %>
+      <span class="glyphicon glyphicon-user"></span> Anonymous | <span class="glyphicon glyphicon-time"></span> <%= post.created_at.strftime("%d-%m-%y   %l:%M %p") %>
 <%end%>
-  <br>
+    <br>
     <% if signed_in? && (current_user.usertype || current_user?(User.find(post.user_id)))%>
       <%= link_to "<span class='glyphicon glyphicon-trash'></span> Delete Post".html_safe, post, method: :delete, class:"delete_btn btn btn-xs", data: { confirm: "Are you sure you want to delete this post?"} %>
   <% end %>
@@ -52,3 +52,14 @@
         <%= render comment %>
     <% end %>
     </ul>
+
+    <% if signed_in? %>
+      <%= form_for(:comment, url: comments_path, method: 'post' , :html => { :class => "form-horizontal"}) do |f|  %>
+      <%= f.text_area :content, size: "60x3", class:"form-control", placeholder:"Add a comment" %>
+    <%= hidden_field_tag(:post_id, "#{post.id}")%>
+    <%= f.submit "Comment", class:"btn btn-primary" %>
+  <% end %>
+
+  <% end %>
+  </div>
+</div>
