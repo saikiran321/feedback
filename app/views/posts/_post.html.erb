@@ -15,7 +15,7 @@
   </div>
 
     <% @anger = Anger.find_by("user_id=? AND post_id=?", current_user.id, post.id) %>
-  <div class="angry_container">
+    <div class="angry_container <%=post.id%>">
     <% if @anger %>
       <%= render partial: 'shared/existing_anger', locals: { anger: @anger, post: post} %>
   <% else %>

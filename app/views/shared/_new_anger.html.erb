@@ -1,6 +1,6 @@
 <span class="float_left">Angry Level: </span>
 <% i = 1%>
 <% 5.times do %>
-  <%= link_to angers_path, url_options: { i: i, post_id: post.id} , method: 'post', remote: true do %> <span class="angry_icon"><% i = i+1 %></span>
-  <% end %>
+  <%= link_to image_tag("icons/icon_angry.png", class: "angry_icon_dim"), angers_path(i:i , post_id: post.id), remote: true %>
+<%i=i+1%>
   <% end %>

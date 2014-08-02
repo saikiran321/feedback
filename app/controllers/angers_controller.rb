@@ -16,7 +16,7 @@ class AngersController < ApplicationController
   def update
     @anger = Anger.find(params[:id])
     @post = @anger.post
-    @post.change_level(@post, 2)
+    @anger.update_attributes(level: params[:i])
     respond_to do |format|
       format.html {redirect_to @anger}
       format.js
