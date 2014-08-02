@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
     #      redirect_to new_user_session_path, :flash => {:error => "Invalid username or password"}
     #    end
 
+    if username.match(/[a-zA-Z]{2}[0-9]{2}[a-zA-Z]{1}[0-9]{3}/)
     ldap = Net::LDAP.new :host => "ldap.iitm.ac.in",
       :port => 389,
       :auth => {
@@ -54,6 +55,9 @@ class SessionsController < ApplicationController
         end
       end
   end
+  else
+  end
+
 
   def destroy
     sign_out 

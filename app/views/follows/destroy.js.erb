@@ -1,1 +1,1 @@
-$("div.<%=@post.id%>").html("<%= escape_javascript(render partial: 'shared/follow', locals: { post: @post }) %>")
+$("div.<%=@post.id%>.follow_unfollow_container").html("<%= escape_javascript(render partial: 'shared/follow', locals: { post: @post }) %>")
