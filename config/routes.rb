@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :destroy, :edit]
   resources :tags, only: [:index, :show]
   resources :follows, only: [:create, :destroy]
-  resources :angers, only: [:update]
+  resources :angers, only: [:create, :update]
 
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   has_many :posts, inverse_of: :user, dependent: :destroy
   has_many :comments, inverse_of: :user, dependent: :destroy
   has_many :notifications, inverse_of: :user, dependent: :destroy
-  has_many :angers, inverse_of: :user, dependent: :destroy 
   has_many :follows
   has_many :posts, through: :follows
   has_many :angers

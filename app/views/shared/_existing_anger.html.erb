@@ -1,0 +1,12 @@
+<span class="float_left">Angry Level: </span>
+<% i = 1 %>
+<% anger.level.times do %>
+  <%= link_to anger_path(anger.id), i: i, remote: true do %><span class="angry_icon"></span>
+  <% i++ %> 
+  <%end%>
+  <%end%>
+<% 5-anger.level.times do %>
+  <%= link_to anger_path(anger.id), i: i, remote: true do %><span class="angry_icon"></span>
+  <% i++ %>
+<%end%>
+  <%end%>
