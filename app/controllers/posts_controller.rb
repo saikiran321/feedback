@@ -30,6 +30,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     tag_it @post
     if @post.save
+      @post.follow!(current_user)
       flash[:success] = "Successfully lodged a complaint"
       redirect_to root_url
     else
@@ -59,12 +60,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.solved = true
     if @post.save
-      if  current_user.id != User.find(Post.find(params[:id]).user_id).id
+      @post.follows.each do |follow|
         @notif = Notification.new
-        @notif.user_id = User.find(Post.find(params[:id]).user_id).id
+        @notif.user_id = follow.user_id
         @notif.post_id = Integer(params[:id])
         @notif.notif_user = current_user.id
-        @notif.action = "marked one of your posts as solved"
+        @notif.action = "marked one of your following posts as solved"
         @notif.save
       end
       flash[:success] = "Successfully marked the status of the post as solved."

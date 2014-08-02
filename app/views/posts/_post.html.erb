@@ -46,6 +46,7 @@
     <% end %>
     </div>
   </span>
+  <% if current_user.id!=post.user_id %>
   <div class="<%=post.id%> follow_unfollow_container">
     <% if post.following?(current_user).length==0 %>
       <%= render partial: 'shared/follow', locals: { post: post } %>
@@ -53,6 +54,7 @@
       <%= render partial: 'shared/unfollow', locals: { post: post } %>
   <% end %>
   </div>
+<%end%>
   <span class="expand_comment btn btn-xs btn-default">View Comments</span>
   <br><br>
 

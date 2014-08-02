@@ -25,7 +25,13 @@ class Post < ActiveRecord::Base
   end
 
   def follow!(user)
-    follows.create!(user_id: user.id)
+    self.follows.create!(user_id: user.id)
+    notif = Notification.new
+    notif.user_id = user.id
+    notif.post_id = self.id
+    notif.notif_user = self.user_id
+    notif.action = "is now following you"
+    notif.save
   end
 
   def unfollow!(user)

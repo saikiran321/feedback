@@ -9,25 +9,17 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
     tag_it @comment
+    if !@post.following?(current_user)
+      @post.follow!(current_user)
+    end
     if @comment.save
-      if current_user.id != User.find(Post.find(params[:post_id]).user_id).id
+      @post.follows.each do |follow|
         @notif = Notification.new
-        @notif.user_id = User.find(Post.find(params[:post_id]).user_id).id
+        @notif.user_id = follow.user_id
         @notif.post_id = @post.id
         @notif.notif_user = current_user.id
-        @notif.action = 'commented on your post'
+        @notif.action = 'commented on a post that you are following'
         @notif.save
-      end
-      @users = User.find(Comment.where("post_id = ?", @post.id).uniq.pluck(:user_id))
-      @users.each do |user|
-        if  current_user.id != user.id && user.id != User.find(@post.user_id).id
-          @notif = Notification.new
-          @notif.user_id = user.id
-          @notif.post_id = @post.id
-          @notif.notif_user = current_user.id
-          @notif.action = 'commented on a post that you have commented on'
-          @notif.save
-        end
       end
       respond_to do |format|
         format.html {redirect_to @comment}

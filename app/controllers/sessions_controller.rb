@@ -18,7 +18,19 @@ class SessionsController < ApplicationController
     #      redirect_to new_user_session_path, :flash => {:error => "Invalid username or password"}
     #    end
 
-    if username.match(/[a-zA-Z]{2}[0-9]{2}[a-zA-Z]{1}[0-9]{3}/)
+    if !username.match(/[a-zA-Z]{2}[0-9]{2}[a-zA-Z]{1}[0-9]{3}/)
+
+      @user = User.find_by(username: username)
+      if @user.usertype==password
+        sign_in @user
+        redirect_to root_path
+        flash[:success] = "Welcome, #{@user[:fullname]}"
+      else
+        redirect_to signin_path
+        flash[:error] = "Sorry, such a user does not exist in our database."
+      end
+
+    else
       ldap = Net::LDAP.new :host => "ldap.iitm.ac.in",
         :port => 389,
         :auth => {
@@ -54,17 +66,8 @@ class SessionsController < ApplicationController
             end
           end
         end
-    end
-  else
-    @user = User.find_by(username: username)
-    if @user.usertype==password
-      sign_in @user
-      redirect_to root_path
-      flash[:success] = "Welcome, #{@user[:fullname]}"
-    else
-      redirect_to signin_path
-      flash[:error] = "Sorry, such a user does not exist in our database."
-    end
+      end
+  
 
   end
 
