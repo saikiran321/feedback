@@ -1,7 +1,5 @@
 class AngersController < ApplicationController
 
-  include AngersHelper
-
   def create
     @post = Post.find(params[:post_id])
     @anger = Anger.new
@@ -12,6 +10,7 @@ class AngersController < ApplicationController
     respond_to do |format|
       format.html{ redirect_to @anger }
       format.js
+    end
   end
 
   def update
