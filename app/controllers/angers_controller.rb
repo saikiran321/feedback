@@ -22,7 +22,7 @@ class AngersController < ApplicationController
     @anger = Anger.find(params[:id])
     @post = @anger.post
     @anger.update_attributes(level: params[:i])
-    new_level = 0
+    new_level = 0.0
     @angers = Anger.where("post_id=?", @post.id)
     @angers.each do |anger|
       new_level = new_level + anger.level
