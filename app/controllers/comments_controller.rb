@@ -14,12 +14,14 @@ class CommentsController < ApplicationController
     end
     if @comment.save
       @post.follows.each do |follow|
+        if follow.user_id!=current_user.id
         @notif = Notification.new
         @notif.user_id = follow.user_id
         @notif.post_id = @post.id
         @notif.notif_user = current_user.id
-        @notif.action = 'commented on a post that you are following'
+        @notif.action = 'has commented on a post that you are following'
         @notif.save
+        end
       end
       respond_to do |format|
         format.html {redirect_to @comment}
