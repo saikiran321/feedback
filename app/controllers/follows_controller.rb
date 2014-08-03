@@ -17,4 +17,5 @@ class FollowsController < ApplicationController
       format.js
     end
   end
+
 end

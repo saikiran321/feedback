@@ -5,6 +5,7 @@
   <div class="post_content">
     <%= raw post.content %>
     <% if post.file_link%>
+      <%= send_file "Rails.root/public/uploads/#{post.file_link}", filename: post.file_link.split(".")[0], type: "image/jpeg", disposition: 'inline' %>
     <% end %>
     <br>
   </div>

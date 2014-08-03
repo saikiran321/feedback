@@ -25,7 +25,7 @@ class Post < ActiveRecord::Base
   end
 
   def follow!(user)
-      self.follows.create!(user_id: user.id)
+    follows.create!(user_id: user.id)
   end
 
   def unfollow!(user)
