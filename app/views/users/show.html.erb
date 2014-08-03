@@ -9,6 +9,7 @@
   <% if !post.anonymous || post.user_id==current_user.id %>
   <%= render post %>
 <% end %>
+<% end %>
 
 <%else%>
 
