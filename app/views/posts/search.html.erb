@@ -7,7 +7,7 @@
 
 <br>
 <% if @posts_title and @posts_title.length!=0 %>
-  <div>Here are the resultant posts for your search string from all the post titles: </div>
+  <div>Here are the resultant posts for your search string from all the <b>post titles</b>: </div>
   <br>
 <% @posts_title.each do |post| %>
   <%= render post %>
@@ -15,7 +15,7 @@
 <% end %>
 
 <% if @posts_contents and @posts_contents.length!=0%>
-  <div>Here are the resultant posts for your search string from all the post contents: </div>
+  <div>Here are the resultant posts for your search string from all the <b>post contents</b>: </div>
   <br>
 <% @posts_contents.each do |post| %>
   <%= render post %>
@@ -23,7 +23,7 @@
 <% end %>
 
 <% if @posts_comments and @posts_comments.length!=0 %>
-  <div>Here are the resultant posts for your search string from all the comments: </div>
+  <div>Here are the resultant posts for your search string from all the <b>comments</b>: </div>
   <br>
 <% @posts_comments.each do |post| %>
   <%= render post %>
