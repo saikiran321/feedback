@@ -9,6 +9,9 @@ class NotificationsController < ApplicationController
 
   def show
     @notification = Notification.find(params[:id])
-    @notification.update_attribute(:seen, true)
+    @notifs = Notification.where("post_id=? AND seen=0", @notification.post_id)
+    @notifs.each do |notif|
+      notif.update_attribute(:seen, true)
+    end
   end
 end
