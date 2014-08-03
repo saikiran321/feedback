@@ -33,3 +33,27 @@ var ready = function(){
 };
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+//Load More JS
+var counter = 10;
+function LoadMore() {
+    counter = counter + 10;
+}
+
+function ShowLess() {
+    counter = 10;
+}
+$(document).on("ready page:change", function () {
+    $(".post_div:lt(10)").show();
+
+    $(".less").click(function () {
+        ShowLess();
+        $('.post_div:gt(0)').hide();
+        $(".post_div:lt(10)").show();
+    });
+
+    $(".load").click(function () {
+        LoadMore();
+        $('.post_div:lt("' + counter + '")').show();
+    });
+});
