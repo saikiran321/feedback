@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20140730111256) do
   add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string   "name",       limit: 20, null: false
+    t.string   "name",       limit: 45, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
