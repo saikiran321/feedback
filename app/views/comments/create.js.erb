@@ -1,1 +1,2 @@
 $("ul.<%=@post.id%>").append("<%= escape_javascript(render partial: 'comments/comment', locals: { comment: @comment, post: @post}) %>")
+$("ul.<%=@post.id%>").children("div.no_comment_div").remove()

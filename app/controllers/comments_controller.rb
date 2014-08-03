@@ -45,6 +45,7 @@ class CommentsController < ApplicationController
       format.html {redirect_to @comment}
       format.js
     end
+    @comment.destroy
   end
 
 end

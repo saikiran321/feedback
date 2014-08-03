@@ -62,7 +62,7 @@
     <ul class="<%=post.id%>">
       <% @comments = Comment.where("post_id = ?", post.id) %>
       <% if @comments.length==0 %>
-        <div>No comments have been posted on this post yet.</div>
+        <div class="no_comment_div">No comments have been posted on this post yet.</div>
     <% end %>
       <% @comments.each do |comment| %>
         <%= render comment %>
