@@ -10,6 +10,10 @@
   <%= render post %>
 <% end %>
 
+<% if @posts.length>10 %>
+    <%= render 'shared/loadmore' %>
+<% end %>
+
 <% else %>
 
   <%= render 'shared/unsigned' %>

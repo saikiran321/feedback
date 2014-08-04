@@ -345,6 +345,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   padding:15px 20px 20px 20px;
   margin-bottom:15px;
   box-shadow:0 0px 5px -2px rgba(100,100,100,0.9);
+  display:none;
 }
 
 ul{
@@ -399,3 +400,8 @@ li{
   float:right;
 }
 
+.load_more{
+width:70%;
+text-align:center;
+margin-bottom:20px;
+}

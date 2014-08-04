@@ -10,6 +10,10 @@
   <%= render post %>
 <% end %>
 
+<% if @posts.length>10 %>
+    <%= render 'shared/loadmore' %>
+<% end %>
+
 <% if @posts.length==0 %>
   <div>No posts are active in this category.</div>
 <% end %>
