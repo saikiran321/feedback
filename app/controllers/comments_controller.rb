@@ -10,9 +10,6 @@ class CommentsController < ApplicationController
     @comment.post_id = @post.id
     tag_it @comment
     if @comment.save
-      if !!@post.following?(current_user) 
-        @post.follow!(current_user) 
-      end
       @post.follows.each do |follow|
         if follow.user_id!=current_user.id
           @notif = Notification.new
@@ -26,6 +23,9 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.html {redirect_to @comment}
         format.js
+      end
+      if !!@post.following?(current_user) 
+        @post.follow!(current_user) 
       end
     else
       render 'new'
