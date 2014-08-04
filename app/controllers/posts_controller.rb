@@ -93,6 +93,7 @@ class PostsController < ApplicationController
       @comments = Comment.where("content LIKE ?", "%#{params[:search]}%")
       @posts_comments = Post.find(@comments.uniq.pluck(:post_id))
     end
+    @posts = @posts_title + @posts_contents + @posts_comments
   end
 
 end

@@ -6,31 +6,16 @@
   <%= render "shared/sidebar" %>
 
 <br>
-<% if @posts_title and @posts_title.length!=0 %>
-  <div>Here are the resultant posts for your search string from all the <b>post titles</b>: </div>
+<% if @posts and @posts.length!=0 %>
+  <div>Here are the resultant posts for your search string : </div>
   <br>
-<% @posts_title.each do |post| %>
+<% @posts.uniq.each do |post| %>
   <%= render post %>
 <% end %>
 <% end %>
+<br>
 
-<% if @posts_contents and @posts_contents.length!=0%>
-  <div>Here are the resultant posts for your search string from all the <b>post contents</b>: </div>
-  <br>
-<% @posts_contents.each do |post| %>
-  <%= render post %>
-<% end %>
-<% end %>
-
-<% if @posts_comments and @posts_comments.length!=0 %>
-  <div>Here are the resultant posts for your search string from all the <b>comments</b>: </div>
-  <br>
-<% @posts_comments.each do |post| %>
-  <%= render post %>
-<% end %>
-<% end %>
-
-<% if @posts_comments.length==0 and @posts_contents.length==0 and @posts_title.length==0 %>
+<% if @posts.length==0 %>
   <br>
   <div><b>No Search results found</b>.</div>
 <% end %>
