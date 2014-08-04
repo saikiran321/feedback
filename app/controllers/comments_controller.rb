@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.post_id = @post.id
     tag_it @comment
     if @comment.save
-      if !@post.following?(current_user) 
+      if !!@post.following?(current_user) 
         @post.follow!(current_user) 
       end
       @post.follows.each do |follow|
