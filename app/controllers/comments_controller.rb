@@ -9,18 +9,18 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
     tag_it @comment
-    if !@post.following?(current_user) 
-      @post.follow!(current_user) 
-    end
     if @comment.save
+      if !@post.following?(current_user) 
+        @post.follow!(current_user) 
+      end
       @post.follows.each do |follow|
         if follow.user_id!=current_user.id
-        @notif = Notification.new
-        @notif.user_id = follow.user_id
-        @notif.post_id = @post.id
-        @notif.notif_user = current_user.id
-        @notif.action = 'has commented on a post that you are following'
-        @notif.save
+          @notif = Notification.new
+          @notif.user_id = follow.user_id
+          @notif.post_id = @post.id
+          @notif.notif_user = current_user.id
+          @notif.action = 'has commented on a post that you are following'
+          @notif.save
         end
       end
       respond_to do |format|
