@@ -20,6 +20,10 @@
   <div><b>No Search results found</b>.</div>
 <% end %>
 
+<% if @posts.length>10 %>
+    <%= render 'shared/loadmore' %>
+<% end %>
+
 <% else %>
 
   <%= render 'shared/unsigned' %>
