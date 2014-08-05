@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
         format.html {redirect_to @comment}
         format.js
       end
-      if !!@post.following?(current_user) 
+      if !@post.following?(current_user) 
         @post.follow!(current_user) 
       end
     else
