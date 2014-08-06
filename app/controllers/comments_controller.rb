@@ -20,12 +20,12 @@ class CommentsController < ApplicationController
           @notif.save
         end
       end
+      if @post.following?(current_user).length==0 
+        @post.follow!(current_user) 
+      end
       respond_to do |format|
         format.html {redirect_to @comment}
         format.js
-      end
-      if !@post.following?(current_user) 
-        @post.follow!(current_user) 
       end
     else
       render 'new'
