@@ -1,4 +1,4 @@
-<div class="post_div"> 
+<div class="post_div <%=post.id%>"> 
   <div class="post_title">
     <%= link_to post.title.capitalize, post_path(id: post.id) %>
   </div>
@@ -39,7 +39,7 @@
         <%= link_to "<span class='glyphicon glyphicon-trash'></span> Delete Post".html_safe, post, method: :delete, class:"delete_btn btn btn-xs", data: { confirm: "Are you sure you want to delete this post?"} %>
     <% end %>
       <% if signed_in? && (current_user.usertype && !post.solved) %> | 
-        <%= link_to "<span class='glyphicon glyphicon-ok'></span> Resolve ".html_safe, post, method: :put, class:"delete_btn btn btn-xs", data: { confirm: "Are you sure you want to mark this solved?"} %>
+        <%= link_to "<span class='glyphicon glyphicon-ok'></span> Resolve ".html_safe, post, method: :put, class:"delete_btn btn btn-xs", data: { confirm: "Are you sure you want to mark this solved?"}, remote: true %>
     <% end %>
       <% if post.solved %> | 
         <%= link_to "<span class='glyphicon glyphicon-ok'></span> Solved ".html_safe, '#', class:"solved_btn btn btn-xs" %>

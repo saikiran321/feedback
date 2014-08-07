@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.content = params[:post][:content]
     @post.tag_ids = params[:post][:tag_ids]
     if Integer(params[:post][:anonymous]) == 1
-    @post.anonymous = Integer(params[:post][:anonymous])
+      @post.anonymous = Integer(params[:post][:anonymous])
     end
     if params[:post][:file_link]
       uploaded_io = params[:post][:file_link]
@@ -64,15 +64,20 @@ class PostsController < ApplicationController
     @post.solved = true
     if @post.save
       @post.follows.each do |follow|
-        @notif = Notification.new
-        @notif.user_id = follow.user_id
-        @notif.post_id = Integer(params[:id])
-        @notif.notif_user = current_user.id
-        @notif.action = "marked one of your following posts as solved"
-        @notif.save
+        if current_user.id!=follow.user_id
+          @notif = Notification.new
+          @notif.user_id = follow.user_id
+          @notif.post_id = Integer(params[:id])
+          @notif.notif_user = current_user.id
+          @notif.action = "marked one of your following posts as solved"
+          @notif.save
+        end
       end
       flash[:success] = "Successfully marked the status of the post as solved."
-      redirect_to :back
+      respond_to do |format|
+        format.html {redirect_to @post}
+        format.js
+      end
     else
       flash[:error] = "Could not save the status of the post. Please try again."
     end
