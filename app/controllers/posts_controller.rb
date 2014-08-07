@@ -50,9 +50,13 @@ class PostsController < ApplicationController
       @notif.action = "deleted your post with title '#{Post.find(params[:id]).title}'"
       @notif.save
     end
-    Post.find(params[:id]).destroy
+    @post = Post.find(params[:id])
     flash[:success] = "Succesfully deleted the post"
-    redirect_to :back
+    respond_to do |format|
+      format.html {redirect_to @post}
+      format.js
+    end
+    @post.destroy
   end
 
   def get_file
