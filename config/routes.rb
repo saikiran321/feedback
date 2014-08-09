@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/solved', to: 'posts#solved', via: 'get'
   match '/search', to: 'posts#search', via: 'get'
+  match 'get_file/', to: 'posts#get_file', via: 'get'
 
   #  get 'static_pages/home'
 
