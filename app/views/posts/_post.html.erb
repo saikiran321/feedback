@@ -5,6 +5,7 @@
   <div class="post_content">
     <%= raw post.content %>
     <% if post.file_link%>
+      <br>
       <%= link_to post.file_link, get_file_path(post_id: post.id)%>
     <% end %>
     <br>
