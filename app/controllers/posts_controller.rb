@@ -47,7 +47,7 @@ class PostsController < ApplicationController
       @notif.user_id = User.find(Post.find(params[:id]).user_id).id
       @notif.post_id = Integer(params[:id])
       @notif.notif_user = current_user.id
-      @notif.action = "deleted your post with title '#{Post.find(params[:id]).title}'"
+      @notif.action = "has deleted your post with title '#{Post.find(params[:id]).title}'"
       @notif.save
     end
     @post = Post.find(params[:id])
