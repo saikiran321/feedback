@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   root 'tags#index'
 
-
   resources :users, only:[:show]
   resources :notifications, only: [:index, :show]
   resources :sessions, only: [:create, :delete]
@@ -22,7 +21,8 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/solved', to: 'posts#solved', via: 'get'
   match '/search', to: 'posts#search', via: 'get'
-  match 'get_file/', to: 'posts#get_file', via: 'get'
+  match '/get_file', to: 'posts#get_file', via: 'get'
+  match '/complaints', to: 'users#complaints', via: 'get'
 
   #  get 'static_pages/home'
 
