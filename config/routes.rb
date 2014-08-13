@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :delete]
   resources :posts
   resources :comments, only: [:create, :destroy, :edit]
-  resources :tags, only: [:index, :show]
+  resources :tags, only: [:index, :show, :update]
   resources :follows, only: [:create, :destroy]
   resources :angers, only: [:update]
 
@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/solved', to: 'posts#solved', via: 'get'
   match '/search', to: 'posts#search', via: 'get'
-  match 'get_file/', to: 'posts#get_file', via: 'get'
+  match '/get_file', to: 'posts#get_file', via: 'get'
+  get '/tag/:id', to: 'tags#display', as: 'display'
 
   #  get 'static_pages/home'
 
