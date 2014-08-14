@@ -28,6 +28,7 @@ class PostsController < ApplicationController
     end
 
     @post.user = current_user
+    tag_it @post
     if @post.save
      # @post.tag_ids.each do |tag|
      #   @post.follow!(User.find_by(usertype: tag))
