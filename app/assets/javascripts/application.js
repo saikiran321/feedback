@@ -17,6 +17,11 @@
 
 var ready = function(){
   $(".comment_container").hide();
+  $(".Popover").popover({
+ // animation: true,
+  trigger: "hover",
+  placement: "top"
+});
 
   $(".expand_comment").click(function(){
     if($(this).html()=="View Comments"){
