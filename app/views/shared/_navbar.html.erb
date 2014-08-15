@@ -36,6 +36,9 @@
               <% @notifs.each do |notif| %>
                 <%= link_to "<li><span class='bold'>#{User.find(notif.notif_user).fullname}</span> has #{notif.action}</li>".html_safe, notif%></li>
             <% end %></div>
+          <% if @notifs.length==0 %>
+            No unseen notifications.
+          <% end %>
             <li class="divider"></li>
             <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path %></li>
           </ul>
