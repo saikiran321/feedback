@@ -5,7 +5,9 @@ body {
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 }
-
+.small_font {
+  font-size: 65%;
+}
 .post_div textarea{
   resize:vertical;
   border:2px solid rgb(190,190,190);
