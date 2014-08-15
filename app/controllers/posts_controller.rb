@@ -33,7 +33,7 @@ class PostsController < ApplicationController
      # @post.tag_ids.each do |tag|
      #   @post.follow!(User.find_by(usertype: tag))
      # end
-      PostMailer.post_notify(@user).deliver
+     # PostMailer.post_notify(@user).deliver
       @post.follow!(current_user)
       flash[:success] = "Successfully lodged a complaint"
       redirect_to root_url
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
       @notif.user_id = User.find(Post.find(params[:id]).user_id).id
       @notif.post_id = Integer(params[:id])
       @notif.notif_user = current_user.id
-      @notif.action = "deleted your post with title '#{Post.find(params[:id]).title}'"
+      @notif.action = "has deleted your post with title '#{Post.find(params[:id]).title}'"
       @notif.save
     end
     @post = Post.find(params[:id])
