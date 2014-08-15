@@ -17,20 +17,15 @@
 
 var ready = function(){
   $(".comment_container").hide();
-  $(".Popover").popover({
- // animation: true,
-  trigger: "hover",
-  placement: "top"
-});
 
   $(".expand_comment").click(function(){
     if($(this).html()=="View Comments"){
-      $(this).siblings(".comment_container").stop().slideDown();
+      $(this).parent(".comment_toggle").siblings(".comment_container").stop().slideDown();
       $(this).html("Hide Comments");
     }
     else{
       
-      $(this).siblings(".comment_container").stop().slideUp();
+      $(this).parent(".comment_toggle").siblings(".comment_container").stop().slideUp();
       $(this).html("View Comments");
     }
   });

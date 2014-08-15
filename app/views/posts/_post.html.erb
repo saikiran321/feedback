@@ -57,7 +57,7 @@
   <% end %>
   </div>
 <%end%>
-  <span class="expand_comment btn btn-xs btn-default">View Comments</span>
+<span class="comment_toggle btn btn-xs btn-default"><span class="expand_comment">View Comments</span>&nbsp(<%=Comment.where("post_id=?",post.id).length%>)</span>
   <br><br>
 
   <div class="comment_container">
