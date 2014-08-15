@@ -118,7 +118,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .notifs_container { 
-  height:300px;
+  max-height:300px;
   overflow:auto;
   padding: 0 0 0 5px;
 }
