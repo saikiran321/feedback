@@ -73,7 +73,9 @@
 
     <% if signed_in? %>
       <%= form_for(:comment, url: comments_path, method: 'post' , :html => { :class => "form-horizontal"}, remote: true) do |f|  %>
-      <%= f.text_area :content, size: "60x3", class:"form-control", placeholder:"Add a comment" %>
+        <%= f.text_area :content, size: "60x3", class:"form-control", placeholder:"Add a comment" %><br>
+        <%= f.label :anonymous%>
+        <%= f.check_box :anonymous %>
     <%= hidden_field_tag(:post_id, "#{post.id}")%>
     <%= f.submit "Comment", class:"btn btn-primary" %>
   <% end %>
