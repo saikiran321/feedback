@@ -73,8 +73,8 @@
 
     <% if signed_in? %>
       <%= form_for(:comment, url: comments_path, method: 'post' , :html => { :class => "form-horizontal"}, remote: true) do |f|  %>
-        <%= f.text_area :content, size: "60x3", class:"form-control", placeholder:"Add a comment" %><br>
-        <% if post.user_id==@current_user.id && post.anonymous %>
+        <%= f.text_area :content, size: "60x3", class:"form-control", placeholder:"Add a comment" %>
+        <% if post.user_id==@current_user.id && post.anonymous %><br>
         <%= f.check_box :anonymous, {checked: true}%>
         <%= f.label :anonymous?%>
         <% end %>
