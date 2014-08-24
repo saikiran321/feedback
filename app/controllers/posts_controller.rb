@@ -27,13 +27,19 @@ class PostsController < ApplicationController
       @post.file_link = uploaded_io.original_filename
     end
 
+    @post.avg_anger = 5
     @post.user = current_user
     tag_it @post
     if @post.save
-     @post.tag_ids.each do |tag|
-       @post.follow!(User.find_by(usertype: tag))
-       PostMailer.post_notify(User.find_by(usertype: tag).username).deliver     end
-      @post.follow!(current_user)
+      @anger = Anger.new
+      @anger.user = current_user
+      @anger.post = @post
+      @anger.level = 5
+      @anger.save
+      @post.tag_ids.each do |tag|
+        @post.follow!(User.find_by(usertype: tag))
+        PostMailer.post_notify(User.find_by(usertype: tag).username).deliver  
+      end
       flash[:success] = "Successfully lodged a complaint"
       redirect_to root_url
     else

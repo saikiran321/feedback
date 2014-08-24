@@ -13,9 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+<<<<<<< HEAD
+//= require_tree
+=======
 //= require bootstrap-tooltip
 //= require bootstrap-popover
 //= require_tree .
+>>>>>>> master
 
 var ready = function(){
   $(".comment_container").hide();
