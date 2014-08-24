@@ -36,6 +36,7 @@ class PostsController < ApplicationController
       @anger.post = @post
       @anger.level = 5
       @anger.save
+
       @post.tag_ids.each do |tag|
         @post.follow!(User.find_by(usertype: tag))
       end
