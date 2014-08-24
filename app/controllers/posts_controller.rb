@@ -27,6 +27,7 @@ class PostsController < ApplicationController
       @post.file_link = uploaded_io.original_filename
     end
 
+    @post.avg_anger = 5
     @post.user = current_user
     tag_it @post
     if @post.save
@@ -35,11 +36,10 @@ class PostsController < ApplicationController
       @anger.post = @post
       @anger.level = 5
       @anger.save
-      # @post.tag_ids.each do |tag|
-      #   @post.follow!(User.find_by(usertype: tag))
-      # end
+      @post.tag_ids.each do |tag|
+        @post.follow!(User.find_by(usertype: tag))
+      end
       PostMailer.post_notify(@user).deliver
-      @post.follow!(current_user)
       flash[:success] = "Successfully lodged a complaint"
       redirect_to root_url
     else
