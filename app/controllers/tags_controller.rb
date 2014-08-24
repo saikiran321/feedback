@@ -18,7 +18,9 @@ class TagsController < ApplicationController
     if params[:tags][:name].length!=0
       @tag.name = params[:tags][:name]
     end
-    @tag.description = params[:tags][:description]
+    if params[:tags][:description].length!=0
+      @tag.description = params[:tags][:description]
+    end
     @tag.save
     redirect_to :back
   end
