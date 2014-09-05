@@ -21,6 +21,11 @@ class CommentsController < ApplicationController
           @notif.save
         end
       end
+     # if User.where(usertype:'NULL').as_json.include?("id"=>@comment.user_id)
+        @post.tag_ids.each do |tag|
+          CommentMailer.comment_notify(User.find_by(usertype:tag).username,@post).deliver
+        end
+     # end
       if @post.following?(current_user).length==0 
         @post.follow!(current_user) 
       end

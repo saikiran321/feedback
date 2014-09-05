@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<style>
+.comment_div{
+ padding:15px 10px 10px 10px;
+ margin: 0 0 5px 0;
+ background-color:rgb(240,240,240);
+}
+.secretary_background{
+ background-color:#DAFFC7;
+}
+</style>
+<% user = User.find_by(username:@recipient) %>
+  <% @post.comments.each do |comment| %>
+  <div class="comment_div <%= comment.id %> <% if user.usertype %>secretary_background <% end %>">
+    <li><%= raw comment.content %></li>
+    <% if comment.anonymous %>
+    <span class="glyphicon glyphicon-user"></span> Anonymous | <span class="glyphicon glyphicon-time"></span> <%= (comment.created_at+330.minutes).strftime("%d-%m-%y   %l:%M %p")%>
+    <% else %>
+    <span class="glyphicon glyphicon-user"></span> <%= user.username %> | <%= user.fullname.capitalize %> | <% if user.usertype %> <span class="secretary"><%= user.typename %></span> |<% end %><span class="glyphicon glyphicon-time"></span> <%= (comment.created_at+330.minutes).strftime("%d-%m-%y   %l:%M %p") %>
+    <% end %>
+  </div>
+<% end %>
+

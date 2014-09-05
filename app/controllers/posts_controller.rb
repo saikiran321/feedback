@@ -37,7 +37,7 @@ class PostsController < ApplicationController
       @anger.level = 5
       @anger.save
       @post.tag_ids.each do |tag|
-        @post.follow!(User.find_by(usertype: tag))
+        #@post.follow!(User.find_by(usertype: tag))
         PostMailer.post_notify(User.find_by(usertype: tag).username).deliver  
       end
       flash[:success] = "Successfully lodged a complaint"
