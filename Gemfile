@@ -45,3 +45,7 @@ gem 'tzinfo-data'
 # gem 'debugger', group: [:development, :test]
 
 gem 'jquery-turbolinks'
+gem 'hpricot'
+gem 'premailer-rails'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
