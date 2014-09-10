@@ -1,3 +1,4 @@
+@import url('../assets/bootstrap.css');
 html,
 body {
   font-family: 'Open Sans', sans-serif;
@@ -427,14 +428,4 @@ margin-bottom:20px;
 .secretary_background
 {
   background-color:#DAFFC7;
-}
-a.email-link {
-  display:inline-block;
-  text-decoration:none;
-  color:#fff;
-  background:#3B5998;   
-  font-family:'Helvetica Neue',helvetica,sans-serif;
-  padding:10px;
-  border:2px solid #fff;
-  margin-top:10px;
 }
