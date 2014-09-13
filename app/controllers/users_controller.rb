@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       @user.hostel = params[:user][:hostel]
       @user.email = params[:user][:email]
       @user.contact = params[:user][:contact]
+      @user.avatar = params[:user][:avatar]
       if @user.save
 	  flash[:success]="User Profile updated successfully"
           redirect_to @user
@@ -36,7 +37,6 @@ class UsersController < ApplicationController
     end
 
     def user_params 
-      params.require(:user).permit(:nick,:room,:hostel,:email,:contact)
+      params.require(:user).permit(:nick,:room,:hostel,:email,:contact,:avatar)
     end
-
-end
+  end

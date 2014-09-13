@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730111256) do
+ActiveRecord::Schema.define(version: 20140913145736) do
 
   create_table "angers", force: true do |t|
     t.integer  "user_id",                null: false
@@ -25,12 +25,29 @@ ActiveRecord::Schema.define(version: 20140730111256) do
   add_index "angers", ["user_id", "post_id"], name: "index_angers_on_user_id_and_post_id", unique: true, using: :btree
   add_index "angers", ["user_id"], name: "index_angers_on_user_id", using: :btree
 
-  create_table "comments", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "post_id",    null: false
-    t.text     "content",    null: false
+  create_table "ckeditor_assets", force: true do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id",                    null: false
+    t.integer  "post_id",                    null: false
+    t.text     "content",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "anonymous",  default: false
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
@@ -85,9 +102,9 @@ ActiveRecord::Schema.define(version: 20140730111256) do
 
   create_table "tags", force: true do |t|
     t.string   "name",        limit: 40, null: false
-    t.text     "description",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
@@ -112,6 +129,11 @@ ActiveRecord::Schema.define(version: 20140730111256) do
     t.timestamp "updated_timestamp"
     t.text      "usertype"
     t.integer   "notifications_count",             default: 0, null: false
+    t.string    "typename",            limit: 40
+    t.string    "avatar_file_name"
+    t.string    "avatar_content_type"
+    t.integer   "avatar_file_size"
+    t.datetime  "avatar_updated_at"
   end
 
   add_index "users", ["username"], name: "UNIQUE", unique: true, using: :btree

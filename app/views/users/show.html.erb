@@ -1,8 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<%= image_tag(@picture,size:"100x100",alt:"Profile pic",title:"Edit this Pic") %>
-			
+		  <%= image_tag @user.avatar.url,size:"100x110" %>
 		</div>
 		<div class="col-md-6">
                 <table class="table">
@@ -29,7 +28,6 @@
 		  </tr>
 	        </table>
 			<%= link_to "Edit Profile",edit_user_path,class:"btn btn-primary" %><br> 
-		</div>
-	
+		</div>	
 	</div>
 </div>
