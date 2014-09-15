@@ -171,10 +171,15 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   background-color:rgb(255,255,255);
   max-width:1200px;
   margin:auto;
-  box-shadow:0 3px 5px -2px rgba(200,200,200,0.9);
+  box-shadow:0 3px 5px -2px rgba(200,200,200,0.9) !important;
+  font-size:60%;
+}
+.fui-brand {
+  padding-top:20px !important;
 }
 .navbar a {
   color:#333A3F;
+  font-size:80% !important;
 }
 
 .allnotifs_btn a{
