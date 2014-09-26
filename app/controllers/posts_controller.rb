@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
     @post.avg_anger = 5
     @post.user = current_user
-    tag_it @post
+    tag_post @post
     if @post.save
       @anger = Anger.new
       @anger.user = current_user
