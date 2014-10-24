@@ -38,7 +38,7 @@
                 <%= link_to "<li><span class='bold'>#{User.find(notif.notif_user).fullname}</span>   #{notif.action}</li>".html_safe, notif%></li>
             <% end %></div>
           <% if @notifs.length==0 %>
-            No unseen notifications.
+            <p class="zero-notif">No unseen notifications.</p>
           <% end %>
             <li class="divider"></li>
             <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path %></li>
@@ -49,12 +49,12 @@
           <ul class="dropdown-menu signin_div">
             <li><%= link_to "My profile", current_user %></li>
             <li> <%= link_to "My complaints", complaints_path %></li>
-            <li><%= link_to "Sign Out", signout_path, method: 'delete' %></li>
             <li class="divider"></li>
-            <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path%></li>
+            <li><%= link_to "Sign Out", signout_path, method: 'delete' %></li>
           </ul>
           </li>
         <% end %>
         </ul>
     </div>
   </nav>
+  <br>

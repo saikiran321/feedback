@@ -6,6 +6,25 @@ body {
   /* The html and body elements cannot have any padding or margin. */
 }
 
+input#search.form-control, input#post_title.form-control, textarea#post_content.form-control , textarea#comment_content.form-control{
+  padding:10px;
+}
+textarea#post_content.form-control,textarea#comment_content.form-control {
+border: 1px solid #ccc;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.alert-error {
+  background:rgb(218, 82, 82);
+}
+
+.zero-notif {
+  padding:10px;
+}
+
 .popover-title {
   display: none;
 }
@@ -15,7 +34,6 @@ body {
 }
 .post_div textarea{
   resize:vertical;
-  border:2px solid rgb(190,190,190);
 }
 
 .unsigned_msg_div, .rules_div {
@@ -107,7 +125,8 @@ body {
 }
 
 ul.nav li.dropdown:hover > ul.dropdown-menu {
-    display: block;    
+    display: block;
+    margin-top:0;
 }
 .notification_navbar_div {
   height:inherit;
@@ -132,7 +151,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   padding:5px;
 }
 .dropdown ul{
-  border:2px solid rgb(196,196,196);
+  border:1px solid rgb(196,196,196);
 
 }
 
@@ -219,7 +238,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 /* Set the fixed height of the footer here */
 #footer {
-  height: 50px;
+  height: 64px;
   margin:auto;
   max-width:1200px;
   background-color:rgb(255,255,255);
