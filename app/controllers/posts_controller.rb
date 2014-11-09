@@ -36,15 +36,11 @@ class PostsController < ApplicationController
       @anger.post = @post
       @anger.level = 5
       @anger.save
-      @post.tag_ids.each do |tag|
-<<<<<<< HEAD
-        #@post.follow!(User.find_by(usertype: tag))
-        PostMailer.post_notify(User.find_by(usertype: tag).username,@post.title).deliver  
-=======
+      /@post.tag_ids.each do |tag|
         @post.follow!(User.find_by(usertype: tag))
        PostMailer.post_notify(User.find_by(usertype: tag).username).deliver  
->>>>>>> a0f24e34efbee587e12c1845c564de19526a1a97
       end
+      /
       flash[:success] = "Successfully lodged a complaint"
       redirect_to root_url
     else

@@ -6,10 +6,12 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.new
     @comment.content = params[:comment][:content]
-    @comment.anonymous = params[:comment][:anonymous]
+    if @comment.anonymous
+      @comment.anonymous = params[:comment][:anonymous]
+    end
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
-    tag_it @comment
+    tag_comment @comment
     if @comment.save
       @post.follows.each do |follow|
         if follow.user_id!=current_user.id
@@ -22,9 +24,9 @@ class CommentsController < ApplicationController
         end
       end
      # if User.where(usertype:'NULL').as_json.include?("id"=>@comment.user_id)
-        @post.tag_ids.each do |tag|
+      /  @post.tag_ids.each do |tag|
           CommentMailer.comment_notify(User.find_by(usertype:tag).username,@post).deliver
-        end
+        end/
      # end
       if @post.following?(current_user).length==0 
         @post.follow!(current_user) 

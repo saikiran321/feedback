@@ -40,12 +40,11 @@ ActiveRecord::Schema.define(version: 20140926155405) do
   end
 
   create_table "comments", force: true do |t|
-    t.integer  "user_id",                    null: false
-    t.integer  "post_id",                    null: false
-    t.text     "content",                    null: false
+    t.integer  "user_id",    null: false
+    t.integer  "post_id",    null: false
+    t.text     "content",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "anonymous",  default: false
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
@@ -99,10 +98,10 @@ ActiveRecord::Schema.define(version: 20140926155405) do
   add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string   "name",        limit: 40, null: false
+    t.string   "name",        limit: 45, null: false
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description"
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
@@ -127,7 +126,6 @@ ActiveRecord::Schema.define(version: 20140926155405) do
     t.timestamp "updated_timestamp"
     t.text      "usertype"
     t.integer   "notifications_count",             default: 0, null: false
-    t.string    "typename",            limit: 40
     t.string    "avatar_file_name"
     t.string    "avatar_content_type"
     t.integer   "avatar_file_size"
