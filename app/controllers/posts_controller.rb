@@ -41,7 +41,7 @@ class PostsController < ApplicationController
        PostMailer.post_notify(User.find_by(usertype: tag).username).deliver  
       end
       /
-      flash[:success] = "Successfully lodged a complaint"
+      flash[:success] = "Successfully submitted feedback"
       redirect_to root_url
     else
       render 'new'

@@ -21,7 +21,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Information", "#" %></li>
         <% if signed_in? %>
-          <li><%= link_to "Lodge a Complaint", new_post_path %></li>
+          <li><%= link_to "Give Feedback", new_post_path %></li>
         <% if current_user.usertype %>
         <li><%= link_to "Edit My Tag", tag_path(id:current_user.usertype) %></li>
       <%end%>
