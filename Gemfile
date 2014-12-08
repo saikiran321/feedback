@@ -40,7 +40,7 @@ gem 'tzinfo-data'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+ gem 'capistrano-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
