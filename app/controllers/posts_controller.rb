@@ -36,11 +36,10 @@ class PostsController < ApplicationController
       @anger.post = @post
       @anger.level = 5
       @anger.save
-      /@post.tag_ids.each do |tag|
-        @post.follow!(User.find_by(usertype: tag))
-       PostMailer.post_notify(User.find_by(usertype: tag).username).deliver  
-      end
-      /
+
+      PostMailer.post_email(@post).deliver
+      PostMailer.arbit_mail(@post).deliver
+
       flash[:success] = "Successfully submitted feedback"
       redirect_to root_url
     else

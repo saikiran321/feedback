@@ -1,10 +1,20 @@
 class PostMailer < ActionMailer::Base
-  default from: "ch12b034@smail.iitm.ac.in"
-  
-  def post_notify(recipient,post_title)
-    @recipient = recipient
-    @recipient_name = User.find_by(username:recipient).fullname
-    @post_title = post_title
-    mail(to:@recipient+"@smail.iitm.ac.in",subject:"Tagged in post '#{post_title}'")
+  default from: "me12b040@smail.iitm.ac.in"
+
+  def post_email(post)
+    @post = post
+    @url = "http://students.iitm.ac.in/feedback/posts/#{@post.id}"
+    subj = "Feedback Portal: #{@post.title}"
+    @tags = Post.includes(:tags).find(post.id).tags
+    @tags.each do |tag|
+      username = User.where("usertype = ?", tag.id).first.username
+      email = "#{username.downcase}@smail.iitm.ac.in"
+      mail(to: email, subject: subj)
+    end
   end
+
+  def arbit_mail(post)
+    mail(to: "dharani.manne@gmail.com", subject: "hey there!!!")
+  end
+
 end

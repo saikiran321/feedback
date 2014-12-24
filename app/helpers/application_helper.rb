@@ -9,7 +9,7 @@ module ApplicationHelper
      @notif.notif_user = current_user.id
      @notif.action = 'has tagged you in a comment'
      @notif.save
-     TagMailer.tag_notify(@user.username,current_user.fullname,"comment").deliver
+     TagMailer.tag_comment_email(comment, @user)
      comment.content.sub!(roll, "<a href='/users/#{@user.id}'>#{@user.fullname.capitalize}</a>")
    end
   end
@@ -23,7 +23,7 @@ module ApplicationHelper
      @notif.notif_user = current_user.id
      @notif.action = 'has tagged you in a post'
      @notif.save
-     TagMailer.tag_notify(@user.username,current_user.fullname,"post").deliver
+     TagMailer.tag_post_email(post, @user)
      comment.content.sub!(roll, "<a href='/users/#{@user.id}'>#{@user.fullname.capitalize}</a>")
    end
   end

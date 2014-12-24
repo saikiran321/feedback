@@ -22,8 +22,8 @@ Rails.application.configure do
   :port                 => 25,
   :domain               => "feedback",
   :authentication       => "plain",
-  :user_name            => "ch12b034",
-  :password             => "-2kV8I@h",
+  :user_name            => "me12b040",
+  :password             => "ip-$3P8C",
   :enable_starttls_auto => true
 } 
   # Print deprecation notices to the Rails logger.

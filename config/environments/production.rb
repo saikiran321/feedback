@@ -41,19 +41,11 @@ Rails.application.configure do
    
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.smtp_settings = {
-  address           : "smtp2.iitm.ac.in",
-  port              : 25,            
-  domain            : "feedback",
-  authentication    : "login",
-  user_name         : "ch12b034",
-  password          : "-2kV8I@h",
-  enable_starttls_auto : true 
-  }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = { :address => "smtp2.iitm.ac.in", :port => 25, :domain => "feedback", :authentication => "login", :user_name => "me12b040", :password => "ip-$3P8C", :enable_starttls_auto => true }
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  config.force_ssl = false
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
