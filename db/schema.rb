@@ -13,10 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20140926155405) do
 
-  create_table "angers", force: true do |t|
-    t.integer  "user_id",                null: false
-    t.integer  "post_id",                null: false
-    t.integer  "level",      default: 0, null: false
+  create_table "angers", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,             null: false
+    t.integer  "post_id",    limit: 4,             null: false
+    t.integer  "level",      limit: 4, default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,29 +25,29 @@ ActiveRecord::Schema.define(version: 20140926155405) do
   add_index "angers", ["user_id", "post_id"], name: "index_angers_on_user_id_and_post_id", unique: true, using: :btree
   add_index "angers", ["user_id"], name: "index_angers_on_user_id", using: :btree
 
-  create_table "bootsy_image_galleries", force: true do |t|
-    t.integer  "bootsy_resource_id"
-    t.string   "bootsy_resource_type"
+  create_table "bootsy_image_galleries", force: :cascade do |t|
+    t.integer  "bootsy_resource_id",   limit: 4
+    t.string   "bootsy_resource_type", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "bootsy_images", force: true do |t|
-    t.string   "image_file"
-    t.integer  "image_gallery_id"
+  create_table "bootsy_images", force: :cascade do |t|
+    t.string   "image_file",       limit: 255
+    t.integer  "image_gallery_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "ckeditor_assets", force: true do |t|
-    t.string   "data_file_name",               null: false
-    t.string   "data_content_type"
-    t.integer  "data_file_size"
-    t.integer  "assetable_id"
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",    limit: 255, null: false
+    t.string   "data_content_type", limit: 255
+    t.integer  "data_file_size",    limit: 4
+    t.integer  "assetable_id",      limit: 4
     t.string   "assetable_type",    limit: 30
     t.string   "type",              limit: 30
-    t.integer  "width"
-    t.integer  "height"
+    t.integer  "width",             limit: 4
+    t.integer  "height",            limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 20140926155405) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
-  create_table "comments", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "post_id",    null: false
-    t.text     "content",    null: false
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,     null: false
+    t.integer  "post_id",    limit: 4,     null: false
+    t.text     "content",    limit: 65535, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 20140926155405) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "follows", force: true do |t|
-    t.integer  "post_id"
-    t.integer  "user_id"
+  create_table "follows", force: :cascade do |t|
+    t.integer  "post_id",    limit: 4
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,12 +77,12 @@ ActiveRecord::Schema.define(version: 20140926155405) do
   add_index "follows", ["post_id"], name: "index_follows_on_post_id", using: :btree
   add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
-  create_table "notifications", force: true do |t|
-    t.integer  "user_id",                    null: false
-    t.integer  "post_id",                    null: false
-    t.integer  "notif_user",                 null: false
-    t.string   "action",                     null: false
-    t.boolean  "seen",       default: false
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,                   null: false
+    t.integer  "post_id",    limit: 4,                   null: false
+    t.integer  "notif_user", limit: 4,                   null: false
+    t.string   "action",     limit: 255,                 null: false
+    t.boolean  "seen",       limit: 1,   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,59 +90,61 @@ ActiveRecord::Schema.define(version: 20140926155405) do
   add_index "notifications", ["post_id"], name: "index_notifications_on_post_id", using: :btree
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
-  create_table "posts", force: true do |t|
-    t.integer  "user_id",                             null: false
-    t.text     "title",                               null: false
-    t.string   "file_link"
-    t.boolean  "solved",              default: false, null: false
-    t.text     "content",                             null: false
-    t.integer  "notifications_count", default: 0,     null: false
-    t.boolean  "anonymous",           default: false, null: false
+  create_table "posts", force: :cascade do |t|
+    t.integer  "user_id",             limit: 4,                     null: false
+    t.text     "title",               limit: 65535,                 null: false
+    t.string   "file_link",           limit: 255
+    t.boolean  "solved",              limit: 1,     default: false, null: false
+    t.text     "content",             limit: 65535,                 null: false
+    t.integer  "notifications_count", limit: 4,     default: 0,     null: false
+    t.boolean  "anonymous",           limit: 1,     default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "avg_anger",           limit: 24,    default: 0.0
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
-  create_table "posts_tags", id: false, force: true do |t|
-    t.integer "tag_id",  null: false
-    t.integer "post_id", null: false
+  create_table "posts_tags", id: false, force: :cascade do |t|
+    t.integer "tag_id",  limit: 4, null: false
+    t.integer "post_id", limit: 4, null: false
   end
 
   add_index "posts_tags", ["post_id", "tag_id"], name: "index_posts_tags_on_post_id_and_tag_id", unique: true, using: :btree
   add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
 
-  create_table "tags", force: true do |t|
-    t.string   "name",       limit: 20, null: false
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",        limit: 45,    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description", limit: 65535
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
-    t.integer  "user_id"
-    t.string   "username",            limit: 15,              null: false
-    t.string   "fullname",            limit: 80,              null: false
-    t.integer  "room"
+  create_table "users", force: :cascade do |t|
+    t.integer  "user_id",             limit: 4
+    t.string   "username",            limit: 15,                null: false
+    t.string   "fullname",            limit: 80,                null: false
+    t.integer  "room",                limit: 4
     t.string   "hostel",              limit: 40
-    t.text     "profile_picture",                             null: false
+    t.text     "profile_picture",     limit: 65535,             null: false
     t.datetime "time_of_reg"
     t.string   "current_mess",        limit: 40
     t.string   "comment",             limit: 50
     t.string   "remember_token",      limit: 128
     t.string   "bgroup",              limit: 5
-    t.integer  "contact",             limit: 8,   default: 0
-    t.string   "email"
-    t.string   "nick"
+    t.integer  "contact",             limit: 8,     default: 0
+    t.string   "email",               limit: 255
+    t.string   "nick",                limit: 255
     t.string   "gender",              limit: 1
     t.string   "picaddress",          limit: 50
     t.datetime "updated_timestamp"
-    t.text     "usertype"
-    t.integer  "notifications_count",             default: 0, null: false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
+    t.text     "usertype",            limit: 65535
+    t.integer  "notifications_count", limit: 4,     default: 0, null: false
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
   end
 

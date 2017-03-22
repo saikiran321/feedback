@@ -15,11 +15,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="https://students.iitm.ac.in">Students Portal</a></li>
+        <li><a href="https://students.iitm.ac.in/dost">Dean's Blog</a></li>
 
         <li><%= link_to "Executive Wing", "https://students.iitm.ac.in/executive" %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Information", "#" %></li>
         <% if signed_in? %>
           <li><%= link_to "Give Feedback", new_post_path %></li>
         <% if current_user.usertype %>

@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     @post.title = params[:post][:title]
     @post.content = params[:post][:content]
     @post.tag_ids = params[:post][:tag_ids]
+
     if Integer(params[:post][:anonymous]) == 1
       @post.anonymous = Integer(params[:post][:anonymous])
     end
@@ -29,6 +30,7 @@ class PostsController < ApplicationController
 
     @post.avg_anger = 5
     @post.user = current_user
+
     tag_post @post
     if @post.save
       @anger = Anger.new
@@ -113,5 +115,11 @@ class PostsController < ApplicationController
       @posts = @posts + @posts_comments
     end
   end
-
+  
+  def feed
+    @posts = Post.all
+    respond_to do |format|
+      format.rss { render :layout => false }
+    end
+  end
 end

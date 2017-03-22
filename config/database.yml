@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: yousuckballs
+  password: wmo_16_17
   socket: /var/run/mysqld/mysqld.sock
 
 development:
@@ -51,10 +51,10 @@ production:
   <<: *default
   database: feedback_production
   username: root
-  password: yousuckballs
+  password: wmo_16_17
 
-students_1415:
+students_1617:
   <<: *default
-  database: students_1415
+  database: students_1617
   username: root
-  password: yousuckballs
+  password: wmo_16_17

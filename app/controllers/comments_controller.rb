@@ -21,8 +21,11 @@ class CommentsController < ApplicationController
           @notif.notif_user = current_user.id
           @notif.action = 'has commented on a post that you are following'
           @notif.save
+          CommentMailer.comment_email(@comment,User.find(follow.user_id)).deliver
         end
       end
+      CommentMailer.comment_email(@comment,User.find(@post.user_id))
+      CommentMailer.arbit_email(@comment).deliver
      # if User.where(usertype:'NULL').as_json.include?("id"=>@comment.user_id)
      # end
       if @post.following?(current_user).length==0 

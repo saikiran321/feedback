@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index, :show]
   resources :sessions, only: [:create, :delete]
   resources :posts
+  get 'feed' => 'posts#feed'
   resources :comments, only: [:create, :destroy, :edit]
   resources :tags, only: [:index, :show, :update]
   resources :follows, only: [:create, :destroy]

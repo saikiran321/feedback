@@ -1,5 +1,5 @@
 class TagMailer < ActionMailer::Base
-  default from: "me12b040@smail.iitm.ac.in"
+  default from: "webops@smail.iitm.ac.in"
 
   def tag_post_email(post, user)
     @post = post

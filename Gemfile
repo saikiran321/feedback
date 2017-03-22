@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.2'
 # Use postgres as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '0.3.16'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 4.0.3'
@@ -40,7 +40,7 @@ gem 'tzinfo-data'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
- gem 'capistrano-rails'
+# gem 'capistrano-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

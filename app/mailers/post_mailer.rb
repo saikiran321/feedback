@@ -1,5 +1,5 @@
 class PostMailer < ActionMailer::Base
-  default from: "me12b040@smail.iitm.ac.in"
+  default from: "webops@smail.iitm.ac.in"
 
   def post_email(post)
     @post = post
@@ -14,7 +14,6 @@ class PostMailer < ActionMailer::Base
   end
 
   def arbit_mail(post)
-    mail(to: "dharani.manne@gmail.com", subject: "hey there!!!")
   end
 
 end
